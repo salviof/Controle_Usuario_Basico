@@ -1,0 +1,10 @@
+VERSAO=1.0-SNAPSHOT
+NOME_PROJETO=modelRegras
+NOME_SOCIAL=Controle_Usuario_BasicoModelRegras
+#PODE SER BIBLIOTECA, MOBILE, DESKTOP, OU WEB
+TIPO_PROJETO=jar
+ENDERECO_WEB=http://salviof.github.io/SuperBits_FrameWork
+NOME_CLIENTE=Super_Bits
+GRUPO_PROJETO=Controle_Usuario_Basico
+NOME_BANCO=Controle_Usuario_BasicoModelRegras
+DIRETORIO_BASE=

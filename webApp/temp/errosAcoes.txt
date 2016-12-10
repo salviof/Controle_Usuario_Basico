@@ -1,0 +1,3 @@
+OS SEGUINTES ERROS DE CONFIGURAÇÃO FORAM ENCONTRADOS NO SISTEMA: 
+ Você pode encontrar informações mais detalhadas do erro no SystemOut 
+

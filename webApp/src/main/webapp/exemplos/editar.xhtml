@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:SBFormulario="http://xmlns.jcp.org/jsf/composite/SBComp/formulario"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp">
+    <!-- template conteúdo com formulario-->
+    <ui:composition template="#{layoutsPaginas.formularioAcaoAtualDaEntidade.xhtmlVinculado}" >
+        <ui:define name="conteudo">
+            <SBFormulario:camposDaAcao
+                registro="#{paginaAtual.infoPagina.comoPaginaEntidade.entidadeSelecionada}"
+                acao="#{paginaAtual.infoPagina.acaoSelecionada}"
+                tipoVisualizacaoLabel="#{layoutsComponenteSB.layoutCampo.superior}"
+                />
+        </ui:define>
+        <ui:define name="botoesDeAcao">
+            <SBComp:botaoDeAcao_Pagina_Entidade
+                registro="#{paginaAtual.infoPagina.comoPaginaEntidade.entidadeSelecionada}"
+                acao="#{paginaAtual.infoPagina.comoPaginaEntidade.acaoSalvarAlteracoes}"
+                />
+        </ui:define>
+    </ui:composition>
+
+</html>

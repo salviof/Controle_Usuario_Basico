@@ -6,7 +6,7 @@
 package com.super_bits.configSBFW.acessos;
 
 import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.MODULOS.demonstracao_acesso_restrito.FabAcaoAcessoRestritoExemplo;
-import com.super_bits.modulos.SBAcessosModel.controller.FabAcaoSeguranca;
+import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.FabAcaoSeguranca;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 
 /**

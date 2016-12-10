@@ -7,8 +7,6 @@ package com.super_bits.Super_Bits.Controle_Usuario_Basico.configAppp;
 
 import com.super_bits.configSBFW.acessos.ConfigAcessos;
 import com.super_bits.configSBFW.acessos.UtilControle_Usuario_BasicoGlobalVar;
-import com.super_bits.modulos.SBAcessosModel.controller.FabAcaoComunicacaoPadrao;
-import com.super_bits.modulos.SBAcessosModel.controller.FabAcaoSeguranca;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ConfiguradorCoreDeProjetoJarAbstrato;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ItfConfiguracaoCoreCustomizavel;
 

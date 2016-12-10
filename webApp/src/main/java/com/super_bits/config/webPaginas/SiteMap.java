@@ -6,14 +6,14 @@
 package com.super_bits.config.webPaginas;
 
 import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.FabMenuExemplo;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.ItfB_Pagina;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_SiteMapa;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.declarados.Paginas.PgAcessos;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.declarados.Paginas.PgCadastroUsuarios;
+import com.super_bits.Controle_Usuario_Basico.paginas.PgAcessos;
+import com.super_bits.Controle_Usuario_Basico.paginas.PgCadastroUsuarios;
+import com.super_bits.Controle_Usuario_Basico.paginas.PgPermissoes;
+import com.super_bits.Controle_Usuario_Basico.paginas.Pg_paginaInicial;
 
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.ItfSiteMapa;
-import java.util.Map;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
 
@@ -34,7 +34,11 @@ public class SiteMap extends MB_SiteMapa implements ItfSiteMapa {
     @Inject
     private PgCadastroUsuarios usuarios;
     @Inject
-    private PgAcessos congrolePermissao;
+    private PgAcessos controleDeAcesso;
+    @Inject
+    private PgPermissoes controleDePermissoes;
+    @Inject
+    private Pg_paginaInicial paginaInicial;
 
     @Override
     public Class<? extends ItfFabricaMenu> getFabricaMenu() {

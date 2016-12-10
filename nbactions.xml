@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
         <action>
-            <actionName>run</actionName>
+            <actionName>clean</actionName>
             <packagings>
-                <packaging>war</packaging>
-                <packaging>ear</packaging>
-                <packaging>ejb</packaging>
+                <packaging>*</packaging>
             </packagings>
             <goals>
-                <goal>jetty:run</goal>
+                <goal>clean</goal>
             </goals>
             <properties>
-                
                 <skipTests>true</skipTests>
             </properties>
         </action>

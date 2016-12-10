@@ -57,6 +57,7 @@ public class TesteConformidade extends RelatorioTesteWebPaginas {
         try {
 
             System.out.println("Realizando Teste");
+            exibirRelatorioCompleto();
 
         } catch (Throwable t) {
 

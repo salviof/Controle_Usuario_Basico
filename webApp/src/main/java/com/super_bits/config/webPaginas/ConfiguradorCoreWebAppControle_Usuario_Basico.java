@@ -5,10 +5,14 @@
  */
 package com.super_bits.config.webPaginas;
 
+import com.google.common.collect.Lists;
 import com.super_bits.configSBFW.acessos.ConfigAcessos;
 import com.super_bits.configSBFW.acessos.UtilControle_Usuario_BasicoGlobalVar;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ItfConfiguracaoCoreCustomizavel;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.ConfiguradorCoreDeProjetoWebWarAbstrato;
+import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.FabAcaoPaginasDoSistema;
+import java.util.List;
 import javax.servlet.ServletContext;
 
 /**
@@ -28,7 +32,12 @@ public class ConfiguradorCoreWebAppControle_Usuario_Basico extends ConfiguradorC
     @Override
     public void defineFabricasDeACao(ItfConfiguracaoCoreCustomizavel pConfig) {
         pConfig.setClasseConfigPermissao(ConfigAcessos.class);
-        pConfig.setFabricaDeAcoes(UtilControle_Usuario_BasicoGlobalVar.pAcoesDoSistema());
+        
+        List<Class<? extends ItfFabricaAcoes>> listaAcoes=Lists.newArrayList(UtilControle_Usuario_BasicoGlobalVar.pAcoesDoSistema());
+        listaAcoes.add(FabAcaoPaginasDoSistema.class);
+        Class<? extends ItfFabricaAcoes>[] acoes;
+        acoes = new Class[listaAcoes.size()];
+        pConfig.setFabricaDeAcoes(listaAcoes.toArray(acoes));
     }
 
 }

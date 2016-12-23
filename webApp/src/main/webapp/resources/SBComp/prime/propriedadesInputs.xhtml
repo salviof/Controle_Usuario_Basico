@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="registro" required="true" type="com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoInstanciado" />
+        <cc:attribute name="idAtualizarAoSair"  default="#{null}" />
+        <cc:attribute name="metodoExecutarAoAlterarValor" method-signature="void listener()" required="false" />
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+
+        <c:choose >
+            <c:when test="#{cc.getValueExpression('metodoExecutarAoAlterarValor') ne null}">
+                <c:set var="possuiMetodo" value="#{true}"/>
+            </c:when>
+            <c:otherwise>
+                <c:set var="possuiMetodo" value="#{false}"/>
+            </c:otherwise>
+        </c:choose>
+
+        <c:choose >
+            <c:when test="#{cc.getValueExpression('idAtualizarAoSair') ne null}">
+                <c:set var="possuiIDAtualizacao" value="#{true}"/>
+            </c:when>
+            <c:otherwise>
+                <c:set var="possuiIDAtualizacao" value="#{false}"/>
+            </c:otherwise>
+        </c:choose>
+
+
+
+        <c:if test="#{cc.attrs.registro.temValidacaoRegex}">
+            <f:validateRegex pattern="#{cc.attrs.registro.validacaoRegex}"/>
+        </c:if>
+        <c:if test="#{cc.attrs.registro.temValidacaoMaximo}">
+            <f:validateLength maximum="#{cc.attrs.registro}"  />
+        </c:if>
+        <c:if test="#{cc.attrs.registro.temValidacaoMinimo}">
+            <f:validateLength minimum="#{cc.attrs.registro.valorMinimo}" />
+        </c:if>
+
+
+
+
+
+
+
+
+    </cc:implementation>
+</html>
+
+
+
+
+
+
+
+
+
+

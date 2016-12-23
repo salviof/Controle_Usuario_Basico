@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:SBFormulario="http://xmlns.jcp.org/jsf/composite/SBComp/formulario">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+
+        <cc:attribute name="acao" required="true" type="com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario" />
+        <cc:attribute name="registro" required="true" type="com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples" />
+        <cc:attribute name="tipoVisualizacao" default="#{tipos.tipoVisualFormulario.padrao}" />
+        <cc:attribute name="somenteLeitura" default="#{true}" />
+        <cc:attribute name="tipoVisualizacaoLabel" default="#{tipos.tipoVisualCampo.padrao}" />
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+        <c:if test="#{tipos.tipoVisualFormulario.gruposCampos == cc.attrs.tipoVisualizacao}">
+            <SBFormulario:camposDaAcao registro="#{cc.attrs.registro}"
+                                       acao="#{cc.attrs.acao}"
+                                       />
+        </c:if>
+        <c:if test="#{tipos.tipoVisualFormulario.assistente ==cc.attrs.tipoVisualizacao}">
+            <SBFormulario:camposDaAcaoWizard
+                acao="#{cc.attrs.acao}"
+                registro="#{cc.attrs.registro}"
+                somenteLeitura="#{cc.attrs.somenteLeitura}"
+                tipoVisualizacaoLabel="#{cc.attrs.tipoVisualizacaoLabel}"/>
+        </c:if>
+    </cc:implementation>
+
+
+
+</html>

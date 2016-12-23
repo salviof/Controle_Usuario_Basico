@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+    <ui:param name="iconeConteudo" value="fa fa-user" />
+    <ui:insert name="parametros" />
+    <div class="Card">
+        <div class="CardTopic">
+            <ui:insert name="titulo" />
+            <i class="#{iconeConteudo} Fs30 Fleft MarRight10"></i>
+            <br/>
+            <div class="EmptyBox10 ShowOnMobile"></div>
+            <span class="CardSubTopic">
+                <ui:insert name="subtitulo" />
+            </span>
+            <h:panelGroup styleClass="Fright">
+                <ui:insert name="conteudoDireita" />
+            </h:panelGroup>
+        </div>
+        <div class="SeparatorFull"></div>
+        <div class="ContainerIndent">
+            <ui:insert name="conteudoCard" />
+        </div>
+    </div>
+</html>
+
+
+
+
+
+
+
+
+
+

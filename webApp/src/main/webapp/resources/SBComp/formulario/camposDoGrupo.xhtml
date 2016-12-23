@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+
+        <cc:attribute name="grupoCampos" required="#{true}" type="com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.GrupoCampos" />
+        <cc:attribute name="registro" required="true" type="com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples" />
+        <cc:attribute name="somenteLeitura" default="#{true}" />
+
+        <cc:attribute shortDescription="O layoyt indica os formatos possíveis de exibição do campo,
+                      para visualizar todas as opções acesse: #layoutsComponenteSB.layoutCampo.  "
+                      name="tipoVisualizacaoLabel"
+                      type="com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB"
+                      default="#{layoutsComponenteSB.layoutCampo.superior}"
+                      />
+
+    </cc:interface>
+
+    <cc:implementation>
+
+
+        <ui:repeat value="#{cc.attrs.grupoCampos.campos}" var="camp"  varStatus="recnum">
+
+            <div class="Container33 Responsive" style="position: relative">
+
+                <p:panel  style="margin: 1%">
+
+
+                    <SBComp:input registro="#{cc.attrs.registro.getCampoByNomeOuAnotacao(camp.caminhoSemNomeClasse)}"
+                                  layout="#{cc.attrs.tipoVisualizacaoLabel}"
+                                  desabilitarEdicao="#{cc.attrs.somenteLeitura}"
+
+                                  />
+                </p:panel>
+
+            </div>
+
+        </ui:repeat>
+
+    </cc:implementation>
+
+</html>
+
+
+
+
+
+
+
+
+

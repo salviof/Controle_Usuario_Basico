@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:sb="http://superbitsframework/ui"
+      >
+
+    <!-- INTERFACE -->
+
+    <cc:interface>
+
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+        <p:panel class="Container100 Responsive100" style="text-align: center">
+            <c:forEach var="modulo" items="#{pgProjetoSBVisaoGeral.modulosDoSistema}" >
+                <p:panel class="Container20 Responsive100"  header="#{modulo.nome}" >
+
+                    <ui:repeat value="#{modulo.acoesGestaoMB}" var="acao" >
+
+
+
+                        <sb:botaoLink
+                            acao="#{acao}"
+                            layout="#{layoutsComponenteSB.layoutBotoes.iconeENome}" />
+
+                    </ui:repeat>
+
+                </p:panel>
+
+            </c:forEach>
+        </p:panel>
+
+
+
+
+    </cc:implementation>
+</html>
+
+
+
+
+
+
+
+
+
+

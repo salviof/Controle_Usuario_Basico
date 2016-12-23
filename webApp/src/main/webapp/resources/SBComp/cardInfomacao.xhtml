@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      >
+    <!-- INTERFACE -->
+    <cc:interface>
+
+        <cc:attribute name="icone" default="fa fa-usd"/>
+        <cc:attribute name="titulo" default="Titulo"/>
+        <cc:attribute name="valor" default="0"/>
+        <cc:attribute name="descricao" default="#{pgUtil.lorrenIpsUmParagrafo}"/>
+
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+        <div class="Container30  Responsive100">
+            <div class="ContainerIndent">
+                <div class="Card">
+                    <div class="Fright Green Fs20" >#{cc.attrs.valor}</div>
+                    <div class="CardTopic "> <i class="#{cc.attrs.icone} Fs30 Fleft MarRight10 "></i>
+                        #{cc.attrs.titulo} <br/>
+                        <span class="CardSubTopic Fs16"
+                              style="line-height:100%!important;"> #{cc.attrs.descricao}
+                        </span>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </cc:implementation>
+
+</html>

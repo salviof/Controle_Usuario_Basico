@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+
+        <cc:attribute name="metodo"  method-signature="void listener()"
+                      required="true"
+                      shortDescription="Metodo que será chamado ao selecionar uma ação"
+                      />
+        <cc:attribute name="opcoes" required="true"
+                      shortDescription="Opções de ações que apareceram para seleção"
+                      />
+        <cc:attribute name="opcaoSelecionada"
+                      required="true"
+                      type="com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema"
+                      shortDescription="Bean onde a ação selecionada será armazenada"
+                      />
+        <cc:attribute name="pid"
+                      default="#{cc.attrs.id}" />
+        <cc:attribute name="visualizacaoBotao"
+                      default="#{tipos.tipoVisualBotao.padrao}"
+                      shortDescription="Tipo de exibição do botão caso o visual do seletor de ações esteja no formato de botões "
+                      />
+        <cc:attribute name="visualSeletorAcoes"
+                      default="#{tipos.tipoVisualBotao.padrao}"
+                      shortDescription="Tipo de exobição da seleçao. "
+                      />
+        <cc:attribute name="update"  default="#{null}" />
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+
+
+
+    </cc:implementation>
+</html>
+
+
+
+
+
+
+
+
+
+

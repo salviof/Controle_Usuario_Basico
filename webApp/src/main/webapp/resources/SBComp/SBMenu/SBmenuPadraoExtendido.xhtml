@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:pm="http://primefaces.org/adamantium"
+       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+       xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="menu" type="com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenuSB" required="true" />
+    </cc:interface>
+
+    <cc:implementation>
+        <div class="layout-menu-cover-top Animated05" id="layout-menu-cover">
+            <h:form>
+                <pm:menu>
+                    <c:forEach items="#{sessaoAtualSBWP.menusDaSessao.menuAvancado.sessoes}" var="sessao" >
+
+
+                        <p:submenu label="#{sessao.nomeAcao}" icon="#{sessao.iconeAcao}">
+                            <c:forEach items="#{sessao.acoes}" var="acao" >
+
+                                <c:if test="#{acao.umaAcaoSessaoMenu}" >
+                                    <p:submenu label="#{acao.nomeAcao}"   icon="#{acao.iconeAcao}">
+
+                                        <c:forEach   items="#{acao.acoes}"  var="subAcao" >
+
+                                            <c:if test="#{subAcao.umaAcaoGestaoDominio}">
+                                                <!-- <p:menuitem
+                                                     value="{subAcao.nomeAcao}"
+                                                     icon="{subAcao.iconeAcao}"
+                                                     url="{infoWebApp.getAcaoManagedBean(subAcao.nomeUnico).urlDeAcesso}" /> -->
+                                            </c:if>
+                                            <!-- <c:if test="{!subAcao.umaAcaoGestaoDominio}">
+                                                 <p:menuitem  value="{subAcao.nomeAcao}  " icon="{subAcao.iconeAcao}" action="{pgUtil.abrirXHTML(subAcao.XHTMLAcao)}" />
+                                             </c:if> -->
+                                        </c:forEach>
+
+                                    </p:submenu>
+
+                                </c:if>
+                                <!--    <c:if test="{!acao.umaAcaoSessaoMenu}" >
+                                        <c:if test="{acao.umaAcaoGestaoDominio}">
+
+                                            <p:menuitem  value="{acao.nomeAcao}url={infoWebApp.getAcaoManagedBean(acao.nomeUnico).urlDeAcesso} " icon="{acao.iconeAcao}" url="{infoWebApp.getAcaoManagedBean(acao.nomeUnico).urlDeAcesso}"
+
+                                                         />
+
+                                        </c:if>
+                                        <c:if test="{!acao.umaAcaoGestaoDominio}">
+                                            <p:menuitem   value="{acao.nomeAcao}" icon="{acao.iconeAcao}" />
+
+                                        </c:if>
+
+                                    </c:if> -->
+                            </c:forEach>
+                        </p:submenu>
+
+                    </c:forEach>
+                </pm:menu>
+            </h:form>
+
+
+
+
+
+
+        </div>
+    </cc:implementation>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:pm="http://primefaces.org/adamantium"
+       xmlns:SBMenu="http://xmlns.jcp.org/jsf/composite/SBComp/SBMenu"
+       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+       xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+
+    <!-- INTERFACE -->
+    <cc:interface shortDescription="Exibe o menu principal (do topo da pagina)">
+        <cc:attribute name="menu" type="com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenuSB" required="true" />
+    </cc:interface>
+
+    <cc:implementation>
+
+
+
+        <!-- TOPBAR START -->
+        <div id="layout-topbar">
+
+            <h:panelGroup rendered="#{controleDeSessaoWeb.sessaoAtual.usuario.grupo.nome=='Administrador'}" >
+                <a id="menu-button" class="Animated1">
+                    <span id="menuline1" class="Animated05"></span>
+                    <span id="menuline2" class="Animated05"></span>
+                    <span id="menuline3" class="Animated05"></span>
+
+                </a>
+
+            </h:panelGroup>
+
+
+
+            <h:graphicImage url="#{infoWebApp.urlPagina}" name="logoHorizontal.png" id="logo" style="height: 70px;" library="img" />
+
+
+            <a id="topmenu-button" class="Animated1">
+                <i class="icon-list2"></i>
+            </a>
+
+            <ul id="top-menu">
+
+                <c:forEach items="#{cc.attrs.menu.sessoes}" var="sessao">
+
+                    <li>
+                        <a class="menulink Animated05"><i class="#{sessao.iconeAcao}"></i> #{sessao.nome}</a>
+                        <ul style="margin-left:-155px;">
+                            <c:forEach items="#{sessao.acoes}" var="acaoSessao" >
+
+                                <li><a href="#{infoWebApp.getAcaoComLink(acaoSessao).urlDeAcesso}"><i class="#{acaoSessao.iconeAcao} Fs18 Fleft Blue MarRight10"></i> <span class="FontAdamantiumBold"> #{acaoSessao.nome}</span></a></li>
+
+                            </c:forEach>
+                        </ul>
+
+                    </li>
+
+
+                </c:forEach>
+
+
+                <li>
+                    <a class="menulink Animated05"><i class="fa fa-address-card" ></i>  Minha Conta </a>
+                    <ul style="margin-left:-145px;">
+
+                        <li>
+
+                            <a class="menulink Animated05"><i></i>  Olá: #{paginaAtual.controleDeSessao.sessaoAtual.usuario.nome} <br/> Grupo: #{paginaAtual.controleDeSessao.sessaoAtual.usuario.grupo} </a>
+
+                        </li>
+                        <li><a href="#"><i class="fa fa-envelope Fs18 Fleft MarRight10"></i> <span class="FontAdamantiumBold"> Enviar Mensagem </span></a></li>
+                        <li><a href="#"><i class="icon-attachment Fs18 Fleft MarRight10"></i> <span class="FontAdamantiumBold">  Perfil e senha </span></a></li>
+
+
+
+                        <li>  <span class="FontAdamantiumBold">
+                                <h:form>
+                                    <p:commandLink actionListener="#{controleDeSessaoWeb.efetuarLogOut}"  oncomplete="javascript:window.location='#{infoWebApp.urlPagina}';">
+                                        <li><i class="icon-lock-stroke Fs18 Fleft MarRight10"></i> <span class="FontAdamantiumBold"> Sair </span></li>
+                                    </p:commandLink>
+                                </h:form>
+                            </span></li>
+
+
+
+                    </ul>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+        <!-- TOPBAR END -->
+
+    </cc:implementation>
+</html>
+
+
+

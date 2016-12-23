@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <!-- INTERFACE -->
+    <cc:interface>
+
+        <cc:attribute
+
+            type="com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario"
+            name="acaoDeListagem"
+            required="true"
+
+            />
+        <cc:attribute
+
+            type="com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples"
+            name="itemSelecionado"
+            required="true"
+
+            />
+
+        <cc:attribute
+
+            type="java.util.List"
+            name="itens"
+            required="true"
+
+            />
+
+        <cc:attribute
+
+            method-signature="void listener()"
+            name="metodo"
+            required="true"
+
+            />
+
+        <cc:attribute name="opcoes" required="true"  />
+
+        <cc:attribute name="titulo"  default="Listagem de  #{cc.attrs.acaoDeListagem.nomeDominio}"/>
+
+
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:panelGroup>
+
+
+            <p:dataTable sortMode="multiple"
+                         value="#{cc.attrs.itens}"
+                         var="item"
+                         emptyMessage="Nenhum #{cc.attrs.acaoDeListagem.nomeDominio} Encontrado"
+                         paginator="true"
+
+                         >
+
+                <f:facet name="header">
+                    #{cc.attrs.titulo}
+                </f:facet>
+
+
+
+                <c:forEach
+
+                    items= "#{cc.attrs.acaoDeListagem.campos}"
+                    var="coluna"
+
+                    >
+
+
+                    <p:column>
+                        <f:facet name="header">
+
+                            <h:outputText value= "#{coluna.labelDoCampo}" />
+
+                        </f:facet>
+
+                        <SBComp:input
+                            registro="#{item.getCampoByNomeOuAnotacao(coluna.caminhoSemNomeClasse)}"
+                            desabilitarEdicao="true"
+                            layout="#{layoutsComponenteSB.layoutCampo.semLabel}"
+
+
+                            />
+
+                    </p:column>
+
+                </c:forEach>
+
+
+
+                <p:column headerText="Ações" width="180">
+
+                    <center>     <SBComp:seletorDeAcoes
+
+                            metodo="#{cc.attrs.metodo}"
+                            opcaoSelecionada="#{paginaAtual.infoPagina.acaoSelecionada}"
+                            opcoes="#{cc.attrs.opcoes}"
+                            visualizacaoBotao="#{layoutsComponenteSB.layoutBotoes.icone}"
+
+                            /> </center>
+
+                </p:column>
+
+
+
+            </p:dataTable>
+
+
+        </h:panelGroup>
+
+    </cc:implementation>
+
+</html>

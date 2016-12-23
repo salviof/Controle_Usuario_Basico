@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+
+
+    <div class="Card">
+
+
+        <div class="CardTopic">
+            #{paginaAtual.infoPagina.acaoSelecionada.nomeAcao}
+            <i class="#{paginaAtual.infoPagina.acaoSelecionada.iconeAcao} Fs30 Fleft MarRight10"></i>
+            <br/>
+            <div class="EmptyBox10 ShowOnMobile"></div>
+            <span class="CardSubTopic">
+                #{paginaAtual.infoPagina.acaoSelecionada.descricao}
+            </span>
+            <h:panelGroup styleClass="Fright">
+                <ui:insert name="conteudoDireita" />
+            </h:panelGroup>
+
+        </div>
+
+        <div class="SeparatorFull"></div>
+
+        <div class="ContainerIndent">
+
+            <ui:insert name="conteudoCard" />
+        </div>
+
+    </div>
+
+    <ui:insert name="conteudoExtraCard" />
+
+</html>
+
+
+
+
+
+
+
+
+
+

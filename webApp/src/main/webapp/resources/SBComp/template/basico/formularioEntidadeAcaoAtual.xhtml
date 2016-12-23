@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:p="http://primefaces.org/ui">
+
+    <div class="Card">
+        <div class="CardTopic">
+            #{paginaAtual.infoPagina.acaoSelecionada.nomeAcao}
+            <i class="#{paginaAtual.infoPagina.acaoSelecionada.iconeAcao} Fs30 Fleft MarRight10"></i>
+            <br/>
+            <div class="EmptyBox10 ShowOnMobile"></div>
+            <span class="CardSubTopic">
+                #{paginaAtual.infoPagina.acaoSelecionada.descricao}
+            </span>
+            <h:panelGroup styleClass="Fright">
+                <h:form>
+                    <SBComp:botaoDeAcao_Pagina_Entidade
+                        registro="#{paginaAtual.infoPagina.comoPaginaEntidade.entidadeSelecionada}"
+                        acao="#{paginaAtual.infoPagina.comoPaginaEntidade.acaoListarRegistros}"
+                        tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"
+                        />
+                </h:form>
+            </h:panelGroup>
+        </div>
+
+        <div class="SeparatorFull"></div>
+
+        <div class="ContainerIndent">
+            <h:form >
+                <ui:insert name="conteudo" />
+                <p:separator />
+                <ui:insert name="botoesDeAcao" />
+            </h:form>
+        </div>
+    </div>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+

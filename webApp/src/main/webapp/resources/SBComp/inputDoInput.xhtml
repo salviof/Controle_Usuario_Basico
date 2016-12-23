@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:sb="http://superbitsframework/ui"
+      >
+    <!-- INTERFACE -->
+    <cc:interface>
+
+        <cc:attribute name="registro"
+                      required="true"
+                      type="com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoInstanciado"
+                      default="#{pgUtil.campoNaoImplementado}" />
+        <cc:attribute name="campoLocalizacaoCEP" default="#{null}"  />
+        <cc:attribute name="desabilitarEdicao" type="java.lang.Boolean" default="#{false}" />
+        <cc:attribute name="idAtualizarOnChange" />
+        <cc:attribute name="metodoExecutarAoAlterarValor" required="false" />
+        <cc:attribute name="label" required="#{false}"  default="#{cc.attrs.registro.label}"/>
+        <cc:attribute shortDescription="O layoyt indica os formatos possíveis de exibição do campo,
+                      para visualizar todas as opções acesse: #layoutsComponenteSB.layoutCampo.  "
+                      name="layout"
+                      type="com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB"
+                      default="#{layoutsComponenteSB.layoutCampo.esquerda}"
+                      />
+
+        <cc:attribute shortDescription="Alguns tipos de dados, possuem mais de uma opção de visualização, como o seletor de item
+                      informe aqui o layout especial pesquizando as opções em #layoutsComponenteSB "
+                      name="visualizacaoEspecial"
+                      type="com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB"
+                      />
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+        <sb:inputSB
+
+            registro="#{cc.attrs.registro}"
+            desabilitarEdicao="#{cc.attrs.desabilitarEdicao}"
+            layoutCampo="#{cc.attrs.layout}"
+            possuiIDOnChange="#{pgUtil.isAtributoPreenchidoComExpressao(cc,'idAtualizarOnChange')}"
+            possuiMetodoOnChange="#{pgUtil.isAtributoPreenchidoComExpressao(cc,'metodoExecutarAoAlterarValor')}"
+            layoutCampoEspecial="#{cc.attrs.visualizacaoEspecial}"
+            label="#{cc.attrs.label}:"
+            opcoes="#{cc.attrs.registro.listaDeOpcoes}"
+            idAtualizarOnChange="#{cc.attrs.idAtualizarOnChange}"
+
+
+            />
+
+    </cc:implementation>
+
+</html>

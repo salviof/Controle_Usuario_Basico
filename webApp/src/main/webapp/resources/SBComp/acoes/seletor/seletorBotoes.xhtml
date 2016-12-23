@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+
+
+
+
+
+
+
+        <cc:attribute name="metodo"  method-signature="void listener()" required="true"   />
+        <cc:attribute name="opcoes" required="true"  />
+        <cc:attribute name="opcaoSelecionada" required="true" type="com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema" />
+        <cc:attribute name="pid" default="#{cc.attrs.id}" />
+        <cc:attribute name="visualizacaoBotao" default="#{tipos.tipoVisualBotao.padrao}" />
+        <cc:attribute name="visualSeletorAcoes" default="#{tipos.tipoVisualBotao.padrao}" />
+        <cc:attribute name="update"  default="#{null}" />
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+
+        <ui:repeat value="#{cc.attrs.opcoes}" var="opc" varStatus="rec">
+            <c:choose >
+
+                <c:when test="#{cc.attrs.visualizacaoBotao==tipos.tipoVisualBotao.apenasIcone}">
+
+                    <p:commandButton  onmousedown="esconderTooltips();"
+                                      id="btIcon#{cc.id}"
+                                      icon="#{opc.iconeAcao}"
+                                      action="#{cc.attrs.metodo}">
+                        <f:setPropertyActionListener  target="#{cc.attrs.opcaoSelecionada}" value="#{opc}"  />
+                        <c:if test="#{cc.attrs.update!=null}">
+                            <f:ajax execute="@form"/>
+                        </c:if>
+
+
+                    </p:commandButton>
+                    <p:tooltip for="btIcon#{cc.id}" value="#{opc.nomeAcao}" trackMouse="true" />
+                </c:when>
+
+
+                <c:when test="#{cc.attrs.visualizacaoBotao==tipos.tipoVisualBotao.botaoGigante}">
+
+
+
+                    <p:commandLink action="#{cc.attrs.metodo}" >
+                        <div class="ContainerIndent">
+                            <div class="Container25 Responsive">
+                                <div class="ContainerIndent">
+                                    <div class="Card RedBack SoftRed TexAlCenter HoverEffect">
+                                        <div class="EmptyBox5"></div>
+                                        <i class="#{opc.iconeAcao} Fs50"></i>
+                                        <div class="EmptyBox5"></div>
+                                        <div class="FontRobotoLight Fs16 SoftRed DispBlock ClearBoth">#{opc.nomeAcao}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <f:setPropertyActionListener target="#{cc.attrs.opcaoSelecionada}" value="#{opc}"/>
+
+                        <c:if test="#{cc.attrs.update!=null}">
+                            <f:ajax execute="#{cc.attrs.update}"/>
+                        </c:if>
+
+
+                    </p:commandLink>
+
+
+
+
+
+
+
+
+                </c:when>
+
+
+                <c:otherwise>
+                    <p:commandButton style="margin-bottom: 5px; "
+                                     id="btIcon#{cc.id}"
+                                     value="#{opc.nomeAcao}"
+                                     icon="#{opc.iconeAcao}"
+                                     action="#{cc.attrs.metodo}"   >
+                        <f:setPropertyActionListener target="#{cc.attrs.opcaoSelecionada}" value="#{opc}"/>
+                        <c:if test="#{cc.attrs.update!=null}">
+                            <f:ajax execute="@form"/>
+                        </c:if>
+
+                    </p:commandButton>
+
+                    <p:tooltip for="btIcon#{cc.id}" value="#{opc.descricao}"/>
+                </c:otherwise>
+
+            </c:choose>
+
+
+        </ui:repeat>
+
+
+
+
+    </cc:implementation>
+</html>
+
+
+
+
+
+
+
+
+
+

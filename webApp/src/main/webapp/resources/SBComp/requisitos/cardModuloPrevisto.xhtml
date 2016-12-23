@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:SBRec="http://xmlns.jcp.org/jsf/composite/SBComp/requisitos"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+
+        <cc:attribute name="moduloPrevisto" displayName="Previsao Gestao"
+                      type="com.super_bits.projeto.Jira.ItfPrevisaoModulo" />
+
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+
+
+        <div class="botaoCard Container30  w3-btn w3-border " >
+
+            <SBRec:porCentagemGrupoTarefas grupoDeTarefas="#{cc.attrs.moduloPrevisto}" />
+
+
+
+
+
+
+
+
+            <span>Quantidade de Gestões Previstas: </span><br/>
+            <span>Quantidade de Tabelas envolvidas: </span><br/>
+            <span>Ações do Sistema nescessárias: </span><br/>
+            <span>Custo com desenvolvedores: #{cc.attrs.moduloPrevisto.custoDesenvolvimento.valorTotal}</span><br/>
+            <span>Horas totais de desenvolvimento: #{cc.attrs.moduloPrevisto.custoDesenvolvimento.horasTotal}</span>
+
+        </div>
+
+
+
+
+    </cc:implementation>
+</html>
+
+
+
+
+
+
+
+
+
+

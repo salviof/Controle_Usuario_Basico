@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:sb="http://superbitsframework/ui"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp">
+    <!-- INTERFACE -->
+    <cc:interface>
+
+        <cc:attribute name="itens"
+                      />
+
+
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:outputStylesheet
+
+
+
+            <ul class="w3-ul w3-card-4">
+                <li class="w3-padding-16">
+                    <span
+                        class=" w3-padding w3-margin-right w3-medium">
+                        <SBComp:seletorDeAcoes metodo="#{paginaAtual.infoPagina.executarAcaoSelecionada()}"
+                                               opcaoSelecionada="" opcoes=""/>
+
+                    </span>
+                    <img src="img_avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:60px"/>
+                    <span class="w3-xlarge">Mike</span><br/>
+                    <span>Web Designer</span>
+                </li>
+                <li class="w3-padding-16">
+                    <span onclick="this.parentElement.style.display = 'none'"
+                          class="w3-closebtn w3-padding w3-margin-right w3-medium">x</span>
+                    <img src="img_avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:60px"/>
+                    <span class="w3-xlarge">Jill</span><br/>
+                    <span>Support</span>
+                </li>
+                <li class="w3-padding-16">
+                    <span onclick="this.parentElement.style.display = 'none'"
+                          class="w3-closebtn w3-padding w3-margin-right w3-medium">x</span>
+                    <img src="img_avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:60px"/>
+                    <span class="w3-xlarge">Jane</span><br/>
+                    <span>Accountant</span>
+                </li>
+            </ul>
+
+    </cc:implementation>
+
+</html>

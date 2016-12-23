@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <!-- INTERFACE -->
+    <cc:interface>
+
+        <cc:attribute
+
+            type="com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario"
+            name="acaoDeListagem"
+            required="true"
+
+            />
+        <cc:attribute
+
+            type="com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples"
+            name="itemSelecionado"
+            required="true"
+
+            />
+
+        <cc:attribute
+
+            type="java.util.List"
+            name="itens"
+            required="true"
+
+            />
+
+        <cc:attribute
+
+            method-signature="void listener()"
+            name="metodo"
+            required="true"
+
+            />
+
+        <cc:attribute name="opcoes" required="true"  />
+
+        <cc:attribute name="titulo"  default="Listagem de #{cc.attrs.acaoDeListagem.nomeDominio}"/>
+
+
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:panelGroup>
+
+            <p:dataGrid
+
+                var="item"
+                value="#{cc.attrs.itens}"
+                layout="grid"
+                columns="3"
+                emptyMessage="Nenhum #{cc.attrs.acaoDeListagem.nomeDominio} encontrado"
+                paginatorTemplate="{Pagina Atual}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                rowsPerPageTemplate="6,9,12,15">
+
+
+
+                <f:facet name="header">
+                    #{cc.attrs.titulo}
+                </f:facet>
+
+                <p:panel>
+
+                    <ui:repeat value="#{cc.attrs.acaoDeListagem.campos}"
+                               var="campo"
+
+                               >
+
+                        <h:panelGrid columns="2" style="width:100%">
+
+
+
+                            <h:outputText value="#{item.getCampoByNomeOuAnotacao(campo.caminhoSemNomeClasse).label}" />
+
+                            <SBComp:input
+                                registro="#{item.getCampoByNomeOuAnotacao(campo.caminhoSemNomeClasse)}"
+                                desabilitarEdicao="true"
+                                layout="#{layoutsComponenteSB.layoutCampo.semLabel}"
+
+
+                                />
+
+
+                        </h:panelGrid>
+
+                    </ui:repeat>
+
+                    <center>     <SBComp:seletorDeAcoes
+
+                            metodo="#{cc.attrs.metodo}"
+                            opcaoSelecionada="#{paginaAtual.infoPagina.acaoSelecionada}"
+                            opcoes="#{cc.attrs.opcoes}"
+                            visualizacaoBotao="#{layoutsComponenteSB.layoutBotoes.icone}"
+
+                            /> </center>
+
+
+                </p:panel>
+
+            </p:dataGrid>
+
+        </h:panelGroup>
+
+    </cc:implementation>
+
+</html>

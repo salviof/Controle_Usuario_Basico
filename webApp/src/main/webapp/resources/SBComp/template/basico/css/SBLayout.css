@@ -1,0 +1,198 @@
+
+
+/* Fica mais interessante utilizando w3-btn e w3-border  */
+.botaoCard{
+    margin:5px;
+    margin-left: 5px!important;
+    padding: 10px;
+    background-color: #dfe3ee!important;
+    min-height: 170px;
+    height: auto!important;
+    color: #000!important;
+    white-space:normal!important;
+    text-align: left!important;
+}
+
+
+.linha-separacao{
+
+    height:1px;
+
+    background:#717171;
+
+
+    border-bottom: solid 1px #E0E0E0;
+    display: block;
+    overflow: hidden;
+    height: 0px;
+    margin: 25px -30px 20px;
+    clear: both;
+
+}
+
+.colunaLabel{
+    width: 120px;
+    text-align: left;
+
+}
+
+.Container40.Responsive100{
+    margin-right: 5%;
+}
+
+.colunaResponsiva{
+    width: auto;
+
+}
+
+.colunaCampoFixo{
+
+}
+
+.Container20.Campanha{
+    margin-left: 2%;
+}
+
+.Container40.Campanha{
+    margin-left: 5%;
+}
+
+.Container50.Responsive100{
+    margin-left: 5%;
+
+}
+
+.Container40.Responsive100.D{
+    margin-left: 3%;
+
+}
+
+.Container40.Responsive100.E{
+    margin-left: 3%;
+
+}
+
+.Container100.Responsive100{
+    line-height: 30%;
+}
+
+.Container33.Responsive100.E{
+    margin-left: 2%;
+
+}
+
+.Container33.Responsive100.D{
+    margin-left: 2%;
+
+}
+
+.Container60.Responsive100.D{
+    margin-left: 4%;
+}
+
+.campoResponsivo{
+    width:   94%!important;
+
+}
+
+.seletorResponsivo{
+    width:   80%!important;
+}
+
+.tabelaFormulario{
+    width:   100%!important;
+    line-height: 14%;
+}
+
+.Container20.Responsive
+{
+    padding: 2%;
+}
+.Container30.Responsive
+{
+    padding: 1%;
+}
+.invisivel{
+    display: none;
+}
+
+.calendario-Gigante {
+    position: relative;
+    margin: 5px 5px 5px 5px;
+    border-radius: 1em 1em 0 0;
+    background: #e66b6b;
+    color: #fff;
+    padding: 1em 2em;
+}
+
+.grampoEsquerda,
+.grampoDireita {
+    position: absolute;
+    top: 0px;
+}
+
+.grampoEsquerda { left: 2em; }
+.grampoDireita { right: 2em; }
+.grampoEsquerda:before,
+.grampoEsquerda:after,
+.grampoDireita:before,
+.grampoDireita:after {
+    background: #fff;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 3px 1px rgba(0, 0, 0, .3), 0 -1px 1px rgba(0, 0, 0, .2);
+    box-shadow: 0 3px 1px rgba(0, 0, 0, .3), 0 -1px 1px rgba(0, 0, 0, .2);
+    content: "";
+    display: inline-block;
+    margin: 8px;
+    height: 32px;
+    width: 8px;
+}
+
+.calendarioGiganteValor {
+    font-size: 3em;
+    font-weight: 900;
+    margin-top: 30px;
+
+}
+
+.calendarioGiganteDescricao {
+    font-size: 2em;
+    line-height: 1em;
+
+}
+
+
+.subtitle {
+    margin: 0 0 2em 0;
+    font-size: 30px;
+    color: #439fe0;
+    padding: 0px;
+    font-family: 'latobold', sans-serif;
+}
+.fancy {
+    line-height: 0.5;
+    text-align: center;
+
+}
+.fancy span {
+    display: inline-block;
+    position: relative;
+}
+.fancy span:before,
+.fancy span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    top: 0;
+    width: 600px;
+}
+.fancy span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+.fancy span:after {
+    left: 100%;
+    margin-left: 15px;
+}

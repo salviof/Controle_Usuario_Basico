@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <ui:composition >
+
+
+
+
+        <h:form >
+            <p:selectOneMenu value="#{pgDemoComponente.tipoVisualizacao}">
+                <f:selectItems value="#{pgDemoComponente.listatiposVisualizacao}" var="tipo" itemValue="#{tipo}"/>
+            </p:selectOneMenu>
+            <p:commandButton value="Atualizar" action="#{pgDemoComponente.validacao()}" oncomplete="javascript:location.reload(); "/>
+        </h:form>
+
+
+
+
+
+
+
+
+
+
+        <h:form id="formExemplo">
+            <p:panel header="Teste posicionamento de Campos" >
+                <p:commandButton value="Validar Campos" update="@form" actionListener="#{pgDemoComponente.validacao()}"/>
+
+
+                <p:panelGrid columns="1"  styleClass="tabelaFormulario" >
+                    <c:forEach items="#{pgDemoComponente.beanExemplo.todosCamposInstanciados}" var="campo" varStatus="rec">
+                        <SBComp:input registro="#{campo}" layout="#{pgDemoComponente.tipoVisualizacao}"  />
+                    </c:forEach>
+                    <SBComp:seletorItem lista="#{pgDemoComponente.beanExemplo.todosCamposInstanciados}" itemSelecionado="#{pgDemoComponente.campoSelecionado}"  />
+                </p:panelGrid>
+
+
+
+
+
+            </p:panel>
+
+
+
+            <p:commandButton validateClient="true" value="Validar Campos" update="@form" />
+        </h:form>
+
+
+
+
+        <p:panel header="Testes posicionamento grid" >
+
+            <h:panelGrid  columns="2"  styleClass="tabelaFormulario" columnClasses="colunaResponsiva,colunaCampoFixo">
+                <p:outputLabel value="teste1" style="campoResponsivo" />
+                <p:outputLabel value="teste2" style="campoResponsivo" />
+                <p:outputLabel value="teste3" style="campoResponsivo" />
+                <p:outputLabel value="teste4" style="campoResponsivo" />
+            </h:panelGrid>
+
+
+            <h:panelGrid  styleClass="tabelaFormulario" columnClasses="colunaResponsiva,colunaCampoFixo">
+                <p:outputLabel value="teste1" style="campoResponsivo" />
+                <p:outputLabel value="teste2" style="campoResponsivo" />
+                <p:outputLabel value="teste3" style="campoResponsivo" />
+                <p:outputLabel value="teste4" style="campoResponsivo" />
+
+            </h:panelGrid>
+
+            <h:panelGrid style="tabelaFormulario" columns="2">
+                <p:outputLabel value="teste1" style="campoResponsivo" />
+                <p:outputLabel value="teste2" style="campoResponsivo" />
+                <p:outputLabel value="teste3" style="campoResponsivo" />
+                <p:outputLabel value="teste4" style="campoResponsivo" />
+            </h:panelGrid>
+
+
+
+
+
+        </p:panel>
+
+
+
+
+        <p:panel header="Teste Campo Específico" >
+            <h:form >
+                <SBComp:seletorItem lista="#{pgDemoComponente.beanExemplo.todosCamposInstanciados}" itemSelecionado="#{pgDemoComponente.campoSelecionado}"  />
+                <p:commandButton value="Alterar" action="#{pgDemoComponente.validacao()}"  oncomplete="javascript:location.reload();" />
+
+
+            </h:form>
+
+
+            <h:form id="testeCampo" >
+                <p:panelGrid columns="2">
+                    <SBComp:input registro="#{pgDemoComponente.campoSelecionado}" layout="#{pgDemoComponente.tipoVisualizacao}"  />
+                    <p:commandButton  value="Validar Campos" update="@form" />
+                </p:panelGrid>
+
+
+            </h:form>
+
+
+
+        </p:panel>
+
+
+
+        <h:form>
+            Apenas Icones:
+            <SBComp:botaoDeAcao metodo="#{paginaAtual.infoPagina.executarAcaoSelecionada()}" acao="#{pgDemoComponente.acaoSalvar}" tipoVisualizacao="#{tipos.tipoVisualBotao.apenasIcone}"/>
+            Apenas Nome:
+            <SBComp:botaoDeAcao  metodo="#{paginaAtual.infoPagina.executarAcaoSelecionada()}" acao="#{pgDemoComponente.acaoSalvar}" tipoVisualizacao="#{tipos.tipoVisualBotao.apenasNome}"/>
+            Icone e Nome:
+            <SBComp:botaoDeAcao  metodo="#{paginaAtual.infoPagina.executarAcaoSelecionada()}" acao="#{pgDemoComponente.acaoSalvar}" tipoVisualizacao="#{tipos.tipoVisualBotao.iconeENome}"/>
+            Descricao
+            <SBComp:botaoDeAcao  metodo="#{paginaAtual.infoPagina.executarAcaoSelecionada()}" acao="#{pgDemoComponente.acaoSalvar}" tipoVisualizacao="#{tipos.tipoVisualBotao.apenasDescricao}"/>
+
+
+        </h:form>
+
+
+
+
+
+
+
+
+
+
+
+    </ui:composition>
+</html>
+
+
+
+
+
+
+
+
+
+

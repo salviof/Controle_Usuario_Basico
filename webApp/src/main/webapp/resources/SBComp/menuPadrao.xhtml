@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:SBMenu="http://xmlns.jcp.org/jsf/composite/SBComp/SBMenu"
+       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+       xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+
+    <!-- INTERFACE -->
+    <cc:interface shortDescription="Exibe o Menu da aplicaçãom conforme definido em menus da sessao,
+
+                  ">
+
+
+        <cc:attribute name="menuBasico" type="com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenuSB"
+                      required="true"
+                      default="#{sessaoAtualSBWP.menusDaSessao.menuPrincipal}"
+                      shortDescription="O menú basico é o menu do topo da aplicação, normalmente com as funções mais simples
+                      em geral é exibido a direita da pagina"
+                      />
+        <cc:attribute name="menuExtendido"
+
+                      type="com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB"
+
+                      default="#{sessaoAtualSBWP.menusDaSessao.menuAvancado}"
+                      shortDescription="O menu extendido é utilizado quando é nessesário exibir muitas opções"
+                      />
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+
+
+
+        <SBMenu:SBmenuPadraoBasico transient="#{true}"
+                                   rendered="#{cc.attrs.menuBasico!=null}"
+
+                                   menu="#{cc.attrs.menuBasico}"/>
+
+
+
+        <SBMenu:SBmenuPadraoExtendido  menu="#{cc.attrs.menuExtendido}"/>
+
+
+
+
+    </cc:implementation>
+
+
+</html>

@@ -1,0 +1,182 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:SBComp="http://java.sun.com/jsf/composite/SBComp"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      >
+
+    <!-- INTERFACE -->
+    <cc:interface>
+
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+
+
+
+
+
+
+
+        <h:form id="formInfoPagina" >
+            <p:commandButton value="Atualizar info" update="formInfoPagina" />
+            Data Criação:   #{paginaAtual.datahoraAbertura}
+
+            Arquivo XHTML #{paginaAtual.infoPagina.recursoXHTML}
+            <p:panel header="Documentação Técnica da Página" style="width:1500px;" >
+
+                <p:panelGrid columns="1">
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="Bean de acesso:"/>
+                        <p:outputLabel value="#{paginaAtual.infoPagina.nomeMB}"/>
+                        <p:outputLabel value="xhtml do managedbean vinculado"/>
+                        <p:outputLabel value="#{paginaAtual.infoPagina.recursoXHTML}"/>
+                        <p:outputLabel value="Xhtml da ação atual"/>
+                        <p:outputLabel value="#{paginaAtual.infoPagina.xhtmlAcaoAtual}"/>
+                        <p:outputLabel value="Ação vinculada"/>
+                        <p:outputLabel value="#{paginaAtual.infoPagina.acaoVinculada}"/>
+                        <p:outputLabel value="Ação selecionada"/>
+                        <p:outputLabel value="#{paginaAtual.infoPagina.acaoSelecionada}"/>
+                        <p:outputLabel value="Link para Requisito do Formulario " />
+                        <p:link href="https://vipsol.atlassian.net/wiki/display/SKEDR/#{paginaAtual.infoPagina.acaoSelecionada.idDescritivoJira}"
+                                value="#{paginaAtual.infoPagina.acaoSelecionada.idDescritivoJira}"
+                                target="requisitoJira:"
+                                >
+                            #{paginaAtual.infoPagina.acaoSelecionada.idDescritivoJira}
+                        </p:link>
+
+                        <p:outputLabel value="Link para Requisito De Gestão" />
+                        <p:link href="https://vipsol.atlassian.net/wiki/display/SKEDR/#{paginaAtual.infoPagina.acaoVinculada.idDescritivoJira}"
+                                value="#{paginaAtual.infoPagina.acaoVinculada.idDescritivoJira}"
+                                target="requisitoJira:"
+                                >
+                            #{paginaAtual.infoPagina.acaoVinculada.idDescritivoJira}
+                        </p:link>
+                        <p:outputLabel value="Ações declaradas:"/>
+                        <p:outputLabel value="#{paginaAtual.infoPagina.acoesDaPagina}" />
+                        <p:outputLabel value="Ações " />
+
+
+                    </p:panelGrid>
+                    <p:commandButton update="@form" value="Atualizar" />
+                    <p:panel header="IDS NESCESSÁRIOS">
+                        <p:panelGrid columns="2">
+                            <c:forEach items="#{paginaAtual.infoPagina.infoIds}" var="info">
+
+                                <p:outputLabel value="#{info.key}"/>
+                                <p:outputLabel value="#{info.value}"/>
+                            </c:forEach>
+                        </p:panelGrid>
+
+                    </p:panel>
+
+                    <p:panel header="WidGets Nessessários" >
+                        Widget são utilizados para referencia do primefaces em vez do ID, um exemplo é o p:Dialog onde o show e hide são chamados pelo nome do widget
+                        <br/> Muitos components do Primefaces possuem eventos, e podem ser acessados lançando comandos Javascript utilizando a syntaxe: PF('nomeDowWidgetQueNesteCasoéUmPdialog').hide(); ou .show()
+                        <p:panelGrid columns="2">
+                            <c:forEach items="#{paginaAtual.infoPagina.infoWidget}" var="info">
+
+                                <p:outputLabel value="#{info.key}"/>
+                                <p:outputLabel value="#{info.value}"/>
+                            </c:forEach>
+                        </p:panelGrid>
+
+                    </p:panel>
+
+                    <p:panel header="INFOBEAN"  >
+                        <p:panelGrid columns="5" >
+
+                            <p:outputLabel value="Tipo"/>
+                            <p:outputLabel value="acesso ([chamada])"/>
+                            <p:outputLabel value="Descricao"/>
+                            <p:outputLabel value="aplicacao"/>
+                            <p:outputLabel value="Visualizacao padrão"/>
+                            <c:forEach items="#{paginaAtual.infoPagina.infoBeans}" var="bean" >
+                                <p:outputLabel value="#{bean.infoBean.classe}"/>
+                                <p:outputLabel value="#{bean.infoBean.chamada}"/>
+                                <p:outputLabel value="#{bean.infoBean.descricao}"/>
+                                <p:outputLabel value="#{bean.infoBean.exemplo}"/>
+                                <p:outputLabel value="#{bean.infoBean.visualizacaoItem}"/>
+
+                            </c:forEach>
+
+
+                        </p:panelGrid>
+
+
+                    </p:panel>
+
+                    <p:panel header="Acoes:" >
+
+                        <p:panelGrid columns="2" >
+                            <p:outputLabel value="Acesso ([chamada])"/>
+                            <p:outputLabel value="Descricao"/>
+                            <p:outputLabel value="teste"/>
+                            <c:forEach items="#{paginaAtual.infoPagina.infoAcoes}" var="acao" >
+                                <p:outputLabel value="teste"/>
+                                <p:outputLabel value="#{acao.chamada}"/>
+                                <p:outputLabel value="#{acao.descricao}"/>
+                            </c:forEach>
+                        </p:panelGrid>
+                    </p:panel>
+                </p:panelGrid>
+            </p:panel>
+        </h:form>
+
+
+        <!-- CODIGO PARA TRATAMENTO DE ERROS DE BEANS -->
+        <p:ajaxExceptionHandler type="javax.faces.application.ViewExpiredException"
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+
+        <p:ajaxExceptionHandler type="java.lang.NullPointerException"
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+
+        <p:ajaxExceptionHandler type="java.lang.IllegalStateException"
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+
+        <p:ajaxExceptionHandler type="java.lang.IllegalArgumentException "
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+
+        <p:ajaxExceptionHandler type="org.jboss.weld.context.NonexistentConversationException"
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+
+        <p:ajaxExceptionHandler type=" org.jboss.weld.context.NonexistentConversationException"
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+
+        <p:dialog id="exceptionDialog" header="Ouve lançamento de exceção não tratada: '#{pfExceptionHandler.type}' !" widgetVar="exceptionDialog"
+
+                  height="500px">
+            <h:outputText value="Mensagem: #{pfExceptionHandler.message}" /> <br/>
+            <h:outputText value="StackTrace: " /> <h:outputText value="#{pfExceptionHandler.formattedStackTrace}" escape="false" /> <br />
+
+            <p:button onclick="document.location.href = document.location.href;"
+                      value="Tentar novamente"
+                      rendered="#{pfExceptionHandler.type == 'javax.faces.application.ViewExpiredException'}" />
+        </p:dialog>
+
+
+    </cc:implementation>
+</html>
+
+
+
+
+
+
+
+
+
+

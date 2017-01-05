@@ -29,7 +29,7 @@ public enum FabAcaoSeguranca implements ItfFabricaAcoes {
             icone = "fa fa-users",
             descricao = "",
             codigoJira = "",
-            precisaPermissao = false,
+            precisaPermissao = true,
             entidade = GrupoUsuarioSB.class,
             xhtmlDaAcao = "gerenciarGrupo.xhtml")
     GRUPO_MB_GERENCIAR,

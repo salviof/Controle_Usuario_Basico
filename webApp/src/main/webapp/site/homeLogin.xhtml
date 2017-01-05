@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:SBLogin="http://xmlns.jcp.org/jsf/composite/SBComp/login"
+
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp">
+
+
+    <ui:composition template="/resources/SBComp/template/basico/conteudoEmBranco.xhtml">
+
+        <ui:define name="head"  >
+            <style>
+                .botaoBox {
+
+                    margin-top: 3px;
+                }
+            </style>
+
+
+        </ui:define>
+
+        <ui:define name="conteudo">
+
+            <div class="container ">
+                <div class="ContainerIndent MarAuto Wid80 Hei20">
+                    <div class="Card ">
+
+                        <div class="ContainerIndent">
+                            <div class="EmptyBox20"/>
+                            <div class="TexAlCenter ShowOnDesktop" style="margin-bottom:-80px;">
+                                <h:graphicImage name="logo.png" height="200" id="logo" library="img"  />
+                            </div>
+                            <div class="TexAlCenter ShowOnMobile" style=" margin-bottom:-80px">
+                                <h:graphicImage name="logo.png"  style="width: 200px; " id="logomobile" library="img" />
+                            </div>
+                            <div class="EmptyBox100 "/>
+                            <div class="ContainerIndent " >
+                                <div class="ShowOnDesktop ">
+                                    <div class="Container50 centralizaDIVContainer50">
+                                        <SBLogin:infoLogin ocultarFormulario="false" />
+                                    </div>
+                                </div>
+                                <div class="ShowOnMobile">
+                                    <div class="Container100">
+                                        <SBLogin:infoLogin ocultarFormulario="false" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="EmptyBox10"/>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+        </ui:define>
+    </ui:composition>
+</html>
+
+
+
+
+
+
+
+
+
+

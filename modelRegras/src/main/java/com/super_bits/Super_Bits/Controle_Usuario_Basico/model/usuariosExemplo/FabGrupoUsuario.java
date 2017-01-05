@@ -22,12 +22,12 @@ public enum FabGrupoUsuario implements ItfFabrica {
             case USUARIO_ANONIMO:
                 novoGrupo.setNome("Grupo Anonimo");
                 novoGrupo.setAtivo(true);
-                novoGrupo.setXhtmlPaginaInicial("/site/exemplo/inicialAnonimo.xhtml");
+                novoGrupo.setXhtmlPaginaInicial("/site/home.xhtml");
                 break;
             case USUARIO_ADMINISTRADOR:
                 novoGrupo.setNome("Grupo Administrador");
                 novoGrupo.setDescricao("Grupo com acesso ao menu Administrador");
-                novoGrupo.setXhtmlPaginaInicial("/site/exemplo/inicialAdministrado.xhtml");
+                novoGrupo.setXhtmlPaginaInicial("/site/modulos/sb_admin_tools/sbinfoprojetoatual/gerenciar.xhtml");
                 novoGrupo.setAtivo(true);
                 break;
             default:

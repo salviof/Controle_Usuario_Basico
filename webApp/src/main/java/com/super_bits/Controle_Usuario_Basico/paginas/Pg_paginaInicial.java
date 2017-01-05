@@ -5,10 +5,10 @@
  */
 package com.super_bits.Controle_Usuario_Basico.paginas;
 
-import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.MODULOS.demonstracao_acesso_restrito.FabAcaoAcessoRestritoExemplo;
-import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.MODULOS.demonstracao_acesso_restrito.InfoAcaoAcessoRestritoExemplo;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.anotacoes.InfoPagina;
+import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.FabAcaoPaginasDoSistema;
+import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.InfoAcaoPaginaDoSistema;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
@@ -26,8 +26,8 @@ import javax.inject.Named;
  */
 @ViewScoped
 @Named
-@InfoAcaoAcessoRestritoExemplo(acao = FabAcaoAcessoRestritoExemplo.RECURSO_RESTRITO_MB_GERENCIAR)
-@InfoPagina(nomeCurto = "home",tags = {"home"})
+@InfoAcaoPaginaDoSistema(acao = FabAcaoPaginasDoSistema.PAGINA_MB_HOME)
+@InfoPagina(nomeCurto = "home", tags = {"home"})
 public class Pg_paginaInicial extends MB_PaginaConversation {
 
     private String beanExemplo;

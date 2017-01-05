@@ -4,67 +4,34 @@
  */
 package com.super_bits.Controle_Usuario_Basico.paginas;
 
-import com.super_bits.Controle_Usuario_Basico.paginas.PgCadastroUsuarios;
-import com.super_bits.config.webPaginas.ConfiguradorCoreWebAppControle_Usuario_Basico;
-import com.super_bits.modulos.SBAcessosModel.model.GrupoUsuarioSB;
-import com.super_bits.modulos.SBAcessosModel.model.UsuarioSB;
-import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
+import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.FabAcaoSeguranca;
+import com.super_bits.config.webPaginas.SiteMap;
+import com.super_bits.modulos.SBAcessosModel.model.ConfiguracaoDePermissao;
+import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.ItfPaginaGerenciarEntidade;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.util.testes.TestePaginaEntidade;
-import config.ConfigPersistenciaTestesAcesso;
+import org.junit.Test;
 
 /**
  *
  * @author desenvolvedor
  */
-public class PgCadastroUsuariosTest extends TestePaginaEntidade<UsuarioSB> {
+public class PgCadastroUsuariosTest extends TestesControleDeUsuarioBasicoWebApp {
 
-    public PgCadastroUsuariosTest() {
-    }
+    @Test
+    public void testeInicial() {
+        try {
+            new SiteMap();
+            ConfiguracaoDePermissao configPermissao = (ConfiguracaoDePermissao) UtilSBPersistencia.getRegistroByID(ConfiguracaoDePermissao.class, 0);
+            SBCore.getConfiguradorDePermissao().configuraPermissoes();
+            SBCore.getConfiguradorDePermissao().configuraUsuarios();
+            boolean podeAcessar = SBCore.getConfiguradorDePermissao().isAcaoPermitidaUsuarioLogado(FabAcaoSeguranca.GRUPO_MB_GERENCIAR.getAcaoDoSistema());
+            System.out.println("podeAcessar?" + podeAcessar + "Precisa permissao?" + FabAcaoSeguranca.GRUPO_MB_GERENCIAR.getAcaoDoSistema().isPrecisaPermissao());
 
-    @Override
-    public void configurarDAdosInsert() {
-
-        GrupoUsuarioSB novogrupo = new GrupoUsuarioSB();
-
-        novogrupo.setAtivo(true);
-        novogrupo.setNome("teste");
-        novogrupo.setId(1);
-
-        pagina.getEntidadeSelecionada().setGrupo(novogrupo);
-    }
-
-    @Override
-    public void configurarDadosEditar() {
-
-    }
-
-    @Override
-    public void configurarPesquisa() {
-        System.out.println("Config Pesquisa");
-    }
-
-    @Override
-    public ItfPaginaGerenciarEntidade definirPagina() {
-        return new PgCadastroUsuarios();
-    }
-
-    @Override
-    protected void configAmbienteDesevolvimento() {
-
-        SBCore.configurar(new ConfiguradorCoreWebAppControle_Usuario_Basico(), SBCore.ESTADO_APP.DESENVOLVIMENTO);
-
-        SBPersistencia.configuraJPA(new ConfigPersistenciaTestesAcesso());
-    }
-
-    @Override
-    public void configuracoesIniciais() {
-
-    }
-
-    @Override
-    public void testesAdicionas() {
+            PgCadastroUsuarios teste = new PgCadastroUsuarios();
+            teste.inicio();
+        } catch (Throwable t) {
+            lancarErroJUnit(t);
+        }
 
     }
 

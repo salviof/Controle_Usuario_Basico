@@ -28,12 +28,12 @@ public class ConfigWPControle_Usuario_Basico implements ItfConfigWebPagina {
 
     @Override
     public String nomePacoteProjeto() {
-        return "SuperBitsWebPaginasDemo";
+        return "Controle_Usuario_Basico";
     }
 
     @Override
     public String TituloAppWeb() {
-        return "Super Bits WebPaginas Demo ShowCase";
+        return "Controle de Usuário Básico";
     }
 
     @Override

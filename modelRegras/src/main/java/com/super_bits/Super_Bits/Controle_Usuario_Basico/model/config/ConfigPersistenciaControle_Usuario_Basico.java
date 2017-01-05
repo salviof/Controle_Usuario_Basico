@@ -4,7 +4,6 @@
  */
 package com.super_bits.Super_Bits.Controle_Usuario_Basico.model.config;
 
-import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.FabAcaoSeguranca;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.ItfConfigSBPersistencia;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 
@@ -16,7 +15,7 @@ public class ConfigPersistenciaControle_Usuario_Basico implements ItfConfigSBPer
 
     @Override
     public String bancoPrincipal() {
-        return "Controle_Usuario_Basico";
+        return "Controle_Usuario_BasicoTestes";
     }
 
     @Override

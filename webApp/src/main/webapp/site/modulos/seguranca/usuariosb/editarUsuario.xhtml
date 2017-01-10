@@ -8,6 +8,7 @@
     <ui:composition template="#{layoutsPaginas.formularioAcaoAtualDaEntidade.xhtmlVinculado}" >
         <ui:define name="conteudo">
             <SBFormulario:camposDaAcao
+                somenteLeitura="#{!pgCadastroUsuarios.podeEditar}"
                 registro="#{paginaAtual.infoPagina.comoPaginaEntidade.entidadeSelecionada}"
                 acao="#{paginaAtual.infoPagina.acaoSelecionada}"
                 tipoVisualizacaoLabel="#{layoutsComponenteSB.layoutCampo.superior}"
@@ -17,6 +18,7 @@
             <SBComp:botaoDeAcao_Pagina_Entidade
                 registro="#{paginaAtual.infoPagina.comoPaginaEntidade.entidadeSelecionada}"
                 acao="#{paginaAtual.infoPagina.comoPaginaEntidade.acaoSalvarAlteracoes}"
+                tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"
                 />
         </ui:define>
     </ui:composition>

@@ -17,6 +17,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcao
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoGestaoEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
 
 /**
  *
@@ -36,8 +37,8 @@ public enum FabAcaoSeguranca implements ItfFabricaAcoes {
     @InfoTipoAcaoFormulario(nomeAcao = "Novo",
             descricao = "Permite criar um grupo de usuários para ser utilizado por administradores do VipKompras",
             xhtmlDaAcao = "editarGrupo.xhtml",
-            icone = "",
-            precisaPermissao = false,
+            iconeFonteAnsowame = FabIconeFontAwesome.REG_NOVO,
+            precisaPermissao = true,
             codigoJira = "UI027",
             entidade = GrupoUsuarioSB.class)
     GRUPO_FRM_NOVO,
@@ -82,6 +83,7 @@ public enum FabAcaoSeguranca implements ItfFabricaAcoes {
             xhtmlDaAcao = "editarUsuario.xhtml",
             nomeAcao = "Criar Novo Usuário",
             icone = "fa fa-plus",
+            campos = {"nome", "email", "senha"},
             precisaPermissao = true,
             codigoJira = "UI031")
     USUARIO_FRM_NOVO,

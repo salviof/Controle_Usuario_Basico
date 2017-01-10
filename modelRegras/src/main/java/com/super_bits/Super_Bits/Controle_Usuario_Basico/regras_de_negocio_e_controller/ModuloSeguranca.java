@@ -191,6 +191,11 @@ public class ModuloSeguranca extends ControllerAbstratoSBPersistencia {
 
     }
 
+    @InfoAcaoSeguranca(acao = FabAcaoSeguranca.IP_CTR_REMOVER)
+    public ItfResposta IpCadastradoRemover() {
+        throw new UnsupportedOperationException("Ainda não foi implementado");
+    }
+
     /**
      * @InfoAcaoCadastro(acao = FabAcaoCadastros.GRP_USUARIO_REMOVE,
      * padraoBloqueado = false) public static ItfResposta

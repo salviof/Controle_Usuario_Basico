@@ -129,7 +129,7 @@ public enum FabAcaoSeguranca implements ItfFabricaAcoes {
             descricao = "Mostra os detalhes do cadastro de usuario")
     USUARIO_CTR_ALTERAR_STATUS,
     @InfoTipoAcaoController(nomeAcao = "Ação interna do Sistema", descricao = "Ação interna generica do sistema", icone = "fa fa-save")
-    ACAO_CTR_INTERNA_DO_SISTEMA,
+    USUARIO_CTR_INTERNA_DO_SISTEMA,
     @InfoTipoAcaoGestaoEntidade(xhtmlDaAcao = "gerenciar.xhtml",
             descricao = "Gerenciamento de IP's",
             precisaPermissao = true,
@@ -204,7 +204,7 @@ public enum FabAcaoSeguranca implements ItfFabricaAcoes {
 
                 return UsuarioSB.class;
 
-            case ACAO_CTR_INTERNA_DO_SISTEMA:
+            case USUARIO_CTR_INTERNA_DO_SISTEMA:
                 return UsuarioSB.class;
 
             case IP_CTR_REMOVER:

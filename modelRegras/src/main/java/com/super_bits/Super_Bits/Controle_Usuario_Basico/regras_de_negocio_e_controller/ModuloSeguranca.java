@@ -27,7 +27,7 @@ import javax.validation.constraints.NotNull;
  */
 public class ModuloSeguranca extends ControllerAbstratoSBPersistencia {
 
-    @InfoAcaoSeguranca(acao = FabAcaoSeguranca.ACAO_CTR_INTERNA_DO_SISTEMA)
+    @InfoAcaoSeguranca(acao = FabAcaoSeguranca.USUARIO_CTR_INTERNA_DO_SISTEMA)
     public static List<AcaoDoSistema> listarAcoesDoGrupo(@NotNull GrupoUsuarioSB pGrpUsuario, @NotNull ModuloAcaoSistema pModulo) {
         List<AcaoDoSistema> resp = new ArrayList<>();
 

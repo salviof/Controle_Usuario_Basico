@@ -82,7 +82,6 @@ public enum FabAcaoAcessoRestritoExemplo implements ItfFabricaAcoes {
     @InfoTipoAcaoController(icone = "fa fa-save", entidade = AcaoDoSistema.class)
     RECURSO_RESTRITO_CTR_SALVAR_MERGE;
 
-    @Override
     public AcaoDoSistema getAcaoDoSistema() {
 
         AcaoDoSistema acao = (AcaoDoSistema) UtilFabricaDeAcoesAcessosModel.getNovaAcao(this);

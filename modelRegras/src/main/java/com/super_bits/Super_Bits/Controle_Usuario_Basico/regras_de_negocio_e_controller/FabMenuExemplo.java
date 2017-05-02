@@ -61,4 +61,14 @@ public enum FabMenuExemplo implements ItfFabricaMenu {
         }
     }
 
+    @Override
+    public MenuSBFW getMenuPrincipal() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public MenuSBFW getMenuSecundario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

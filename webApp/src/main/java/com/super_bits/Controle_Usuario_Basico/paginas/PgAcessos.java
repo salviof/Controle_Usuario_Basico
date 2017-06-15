@@ -3,7 +3,6 @@
  */
 package com.super_bits.Controle_Usuario_Basico.paginas;
 
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfPermissao;
 import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.FabAcaoSeguranca;
 import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.InfoAcaoSeguranca;
 import com.super_bits.modulos.SBAcessosModel.model.GrupoUsuarioSB;
@@ -11,10 +10,11 @@ import com.super_bits.modulos.SBAcessosModel.model.PermissaoSB;
 import com.super_bits.modulos.SBAcessosModel.model.UsuarioSB;
 import com.super_bits.modulosSB.Persistencia.dao.CrudDataSet;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfPermissao;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabMensagens;
 import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.PrimeFacesBeanModel.BP_PickList;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.declarados.Paginas.ItfPgAcessos;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.declarados.util.PgUtil;
@@ -82,7 +82,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
 
         System.out.println("USUARIOS::::::::::::::::::::" + grupoUsuariosCrud.getRegistro().getUsuarios());
         //inclusaoGrupos = new DualListModel<>();
-        pickListUsuarioEmGrupo = new BP_PickList<>((List) grupoUsuariosCrud.getRegistro().getUsuarios(), UsuarioSB.class);
+        pickListUsuarioEmGrupo = new BP_PickList<>((List) grupoUsuariosCrud.getRegistro().getUsuarios(), UtilSBPersistencia.getListaTodos(UsuarioSB.class));
 
     }
 
@@ -306,7 +306,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
     }
 
     public void mudaListaTeste() {
-        pickListUsuarioEmGrupo.setLista(grupoUsuariosCrud.getRegistro().getUsuarios());
+        //pickListUsuarioEmGrupo.setLista(grupoUsuariosCrud.getRegistro().getUsuarios());
     }
 
     public BP_PickList<UsuarioSB> getPickListUsuarioPagina() {

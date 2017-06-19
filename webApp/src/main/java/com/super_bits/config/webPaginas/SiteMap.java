@@ -13,8 +13,8 @@ import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_con
 import com.super_bits.modulos.paginas.adminTools.PgAdminBanco;
 import com.super_bits.modulos.paginas.adminTools.PgAdminSistema;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.ItfSiteMapa;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_SiteMapa;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.interfaces.ItfSiteMapa;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.MB_SiteMapa;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
 

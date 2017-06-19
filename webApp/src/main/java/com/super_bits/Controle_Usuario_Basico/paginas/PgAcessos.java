@@ -14,12 +14,13 @@ import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabMensagens;
 import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.PrimeFaces.BP_PickList;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_PaginaConversation;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.anotacoes.InfoPagina;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.anotacoes.beans.InfoMB_Bean;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.declarados.Paginas.ItfPgAcessos;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.util.PgUtil;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.webPaginas.JSFBeans.PrimeFacesBeanModel.BP_PickList;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.declarados.Paginas.ItfPgAcessos;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.declarados.util.PgUtil;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.beans.InfoMB_Bean;
 import com.super_bits.modulosSB.webPaginas.controller.sessao.ControleDeSessaoWeb;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -328,6 +329,16 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         } catch (Throwable e) {
             FabMensagens.enviarMensagemUsuario("Erro recarregando Acessos", FabMensagens.AVISO);
         }
+    }
+
+    @Override
+    public ItfBeanSimples getBeanSelecionado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

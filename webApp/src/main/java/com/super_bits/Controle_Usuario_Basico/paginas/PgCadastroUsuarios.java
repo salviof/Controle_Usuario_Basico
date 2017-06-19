@@ -14,9 +14,10 @@ import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfResposta;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_paginaCadastroEntidades;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.anotacoes.InfoPagina;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.util.PgUtil;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.declarados.util.PgUtil;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_paginaCadastroEntidades;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_paginaCadastroEntidades.estadoEdicao;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -56,6 +57,7 @@ public class PgCadastroUsuarios extends MB_paginaCadastroEntidades<UsuarioSB> {
     }
 
     private void atualizarDados() {
+
         grupoDeUsuarios = UtilSBPersistencia.getListaTodos(GrupoUsuarioSB.class, getEMPagina());
         setEntidadesListadas(UtilSBPersistencia.getListaTodos(UsuarioSB.class, getEMPagina()));
     }
@@ -140,6 +142,7 @@ public class PgCadastroUsuarios extends MB_paginaCadastroEntidades<UsuarioSB> {
         this.acoesDisponiveis = acoesDisponiveis;
     }
 
+    @Override
     public ItfAcaoDoSistema getAcaoSelecionada() {
         return acaoSelecionada;
     }

@@ -5,8 +5,9 @@
  */
 package com.super_bits.config.webPaginas;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.ItfConfigWebPagina;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.ParametroURL;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.parametrosURL.ParametroURL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +55,11 @@ public class ConfigWPControle_Usuario_Basico implements ItfConfigWebPagina {
     @Override
     public boolean parametroDeAplicacaoEmSubDominio() {
         return false;
+    }
+
+    @Override
+    public ItfAcaoFormulario getAcaoPaginaInicial() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

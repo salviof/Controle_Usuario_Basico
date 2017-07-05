@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.super_bits</groupId>
             <artifactId>SBPersistencia</artifactId>
-            <version>1.5.2-SNAPSHOT</version>
+            <version>0.9-SNAPSHOT</version>
         </dependency>
 
         <dependency>

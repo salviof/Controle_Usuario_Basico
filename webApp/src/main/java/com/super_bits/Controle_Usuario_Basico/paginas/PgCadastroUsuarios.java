@@ -14,6 +14,7 @@ import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfResposta;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.estadoFormulario.FabEstadoFormulario;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.declarados.util.PgUtil;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_paginaCadastroEntidades;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
@@ -79,7 +80,7 @@ public class PgCadastroUsuarios extends MB_paginaCadastroEntidades<UsuarioSB> {
         }
 
         if (acaoSelecionada.equals(FabAcaoSeguranca.USUARIO_FRM_VISUALIZAR.getAcaoDoSistema())) {
-            atualizaInformacoesDeEdicao(estadoEdicao.VISUALIZAR);
+            atualizaInformacoesDeEdicao(FabEstadoFormulario.VISUALIZAR);
 
         }
 
@@ -169,7 +170,7 @@ public class PgCadastroUsuarios extends MB_paginaCadastroEntidades<UsuarioSB> {
 
             pgUtil.atualizaTelaPorID("formulario");
         }
-        atualizaInformacoesDeEdicao(estadoEdicao.VISUALIZAR);
+        atualizaInformacoesDeEdicao(FabEstadoFormulario.VISUALIZAR);
     }
 
     @Override

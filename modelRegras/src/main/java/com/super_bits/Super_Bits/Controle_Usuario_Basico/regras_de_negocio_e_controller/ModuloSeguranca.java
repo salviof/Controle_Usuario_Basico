@@ -32,7 +32,7 @@ public class ModuloSeguranca extends ControllerAbstratoSBPersistencia {
         List<AcaoDoSistema> resp = new ArrayList<>();
 
         for (ItfAcaoDoSistema acao : pModulo.getAcoes()) {
-            PermissaoSB permissao = (PermissaoSB) getPermissaoPorAcao(acao);
+            PermissaoSB permissao = (PermissaoSB) SBCore.
             //TODO sobrescrever metodo permissao no modulo SBPErmissao utilizando loadBY
             //   permissao = (PermissaoSB) UtilSBPersistencia.getRegistroByID(PermissaoSB.class, permissao.getId(), em);
             if (permissao != null) {
@@ -66,7 +66,7 @@ public class ModuloSeguranca extends ControllerAbstratoSBPersistencia {
         }
         pGrupo = (GrupoUsuarioSB) UtilSBPersistencia.mergeRegistro(pGrupo, em);
         UtilSBPersistencia.finzalizaTransacaoEFechaEM(em);
-        ControllerAppAbstratoSBCore.reloadAcessos();
+//        ControllerAppAbstratoSBCore.reloadAcessos();
         return resp.setRetornoDisparaERetorna(pGrupo);
 
     }
@@ -97,7 +97,7 @@ public class ModuloSeguranca extends ControllerAbstratoSBPersistencia {
         if (!UtilSBPersistencia.finalizarTransacao(pEM)) {
             return resp.addMensagemErroDisparaERetorna("Erro Atualizando informações do grupo");
         }
-        ControllerAppAbstratoSBCore.reloadAcessos();
+//        ControllerAppAbstratoSBCore.reloadAcessos();
         UtilSBPersistencia.iniciarTransacao(pEM);
         if (pGrpUsuario == null) {
             return resp.addMensagemErroDisparaERetorna("Erro ao salvar alterações basicas do grupo");
@@ -133,7 +133,7 @@ public class ModuloSeguranca extends ControllerAbstratoSBPersistencia {
         if (!UtilSBPersistencia.finalizarTransacao(pEM)) {
             resp.addErro("Erro salvando registro no banco de dados");
         }
-        ControllerAppAbstratoSBCore.reloadAcessos();
+//        ControllerAppAbstratoSBCore.reloadAcessos();
         if (resp.isSucesso()) {
             resp.addAviso("As definições de segurança do grupo " + pGrpUsuario.getNome() + " foram atualizadas");
         }
@@ -185,8 +185,7 @@ public class ModuloSeguranca extends ControllerAbstratoSBPersistencia {
 
         }
 
-        ControllerAppAbstratoSBCore.reloadAcessos();
-
+//        ControllerAppAbstratoSBCore.reloadAcessos();
         return resp.setRetornoDisparaERetorna(pUsuario);
 
     }

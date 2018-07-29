@@ -46,11 +46,6 @@ public enum FabModulosIProjetoTesteI implements ItfFabricaModulo {
     }
 
     @Override
-    public Object getRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public ItfFabricaMenu getMenuPadrao() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

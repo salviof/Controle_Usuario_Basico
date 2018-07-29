@@ -5,6 +5,7 @@
  */
 package com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller;
 
+import com.super_bits.modulos.SBAcessosModel.controller.UtilSBControllerAcessosModel;
 import com.super_bits.modulos.SBAcessosModel.model.GrupoUsuarioSB;
 import com.super_bits.modulos.SBAcessosModel.model.ModuloAcaoSistema;
 import com.super_bits.modulos.SBAcessosModel.model.PermissaoSB;
@@ -12,6 +13,7 @@ import com.super_bits.modulos.SBAcessosModel.model.UsuarioSB;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
 import com.super_bits.modulosSB.Persistencia.dao.ControllerAbstratoSBPersistencia;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
+import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.ControllerAppAbstratoSBCore;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfResposta;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
@@ -30,18 +32,6 @@ public class ModuloSeguranca extends ControllerAbstratoSBPersistencia {
     @InfoAcaoSeguranca(acao = FabAcaoSeguranca.USUARIO_CTR_INTERNA_DO_SISTEMA)
     public static List<AcaoDoSistema> listarAcoesDoGrupo(@NotNull GrupoUsuarioSB pGrpUsuario, @NotNull ModuloAcaoSistema pModulo) {
         List<AcaoDoSistema> resp = new ArrayList<>();
-
-        for (ItfAcaoDoSistema acao : pModulo.getAcoes()) {
-            PermissaoSB permissao = (PermissaoSB) SBCore.
-            //TODO sobrescrever metodo permissao no modulo SBPErmissao utilizando loadBY
-            //   permissao = (PermissaoSB) UtilSBPersistencia.getRegistroByID(PermissaoSB.class, permissao.getId(), em);
-            if (permissao != null) {
-                if (permissao.getGruposPermitidos().contains(pGrpUsuario)) {
-                    resp.add((AcaoDoSistema) acao);
-                }
-            }
-
-        }
 
         return resp;
     }
@@ -84,61 +74,7 @@ public class ModuloSeguranca extends ControllerAbstratoSBPersistencia {
     @InfoAcaoSeguranca(acao = FabAcaoSeguranca.GRUPO_CTR_SALVAR_MERGE, padraoBloqueado = false)
     public static ItfResposta grupoDeUsuariosSalvarAlteracoes(@NotNull GrupoUsuarioSB pGrpUsuario, @NotNull List<ModuloAcaoSistema> pModulos, EntityManager pEM) {
 
-        ItfResposta resp = getNovaRespostaAutorizaChecaNulo(pGrpUsuario);
-        if (pGrpUsuario == null || pModulos == null) {
-            return resp.addMensagemErroDisparaERetorna("Selecione o grupo de usuario e as ações do sistema");
-        }
-
-        if (!resp.isSucesso()) {
-            return resp.dispararMensagens();
-        }
-        UtilSBPersistencia.iniciarTransacao(pEM);
-        pGrpUsuario = (GrupoUsuarioSB) UtilSBPersistencia.mergeRegistro(pGrpUsuario, pEM);
-        if (!UtilSBPersistencia.finalizarTransacao(pEM)) {
-            return resp.addMensagemErroDisparaERetorna("Erro Atualizando informações do grupo");
-        }
-//        ControllerAppAbstratoSBCore.reloadAcessos();
-        UtilSBPersistencia.iniciarTransacao(pEM);
-        if (pGrpUsuario == null) {
-            return resp.addMensagemErroDisparaERetorna("Erro ao salvar alterações basicas do grupo");
-        }
-        for (ModuloAcaoSistema modulo : pModulos) {
-
-            for (ItfAcaoDoSistema acao : modulo.getAcoes()) {
-                PermissaoSB permissao = (PermissaoSB) getPermissaoPorAcao(acao);
-
-                //TODO sobrescrever metodo permissao no modulo SBPErmissao utilizando loadBY
-                //   permissao = (PermissaoSB) UtilSBPersistencia.getRegistroByID(PermissaoSB.class, permissao.getId(), em);
-                if (permissao == null) {
-                    FabErro.SOLICITAR_REPARO.paraDesenvolvedor("O registro PermissaoSB não foi encontrado para esta ação", null);
-                }
-                if (permissao != null) {
-                    if (modulo.getSelecaoAcoes().contains(acao)) {
-                        if (!permissao.getGruposPermitidos().contains(pGrpUsuario)) {
-                            permissao.getGruposPermitidos().add(pGrpUsuario);
-                        }
-
-                    } else {
-                        permissao.getGruposPermitidos().remove(pGrpUsuario);
-                    }
-                    System.out.println("Adicionou" + pGrpUsuario + "a permissao" + permissao.getNomeCurto());
-                    if (UtilSBPersistencia.mergeRegistro(permissao, pEM) == null) {
-                        resp.addAlerta("Aconteceu um erro ao tentar salvar a ação do sistema" + acao.getNomeAcao());
-                    }
-                }
-            }
-
-        }
-
-        if (!UtilSBPersistencia.finalizarTransacao(pEM)) {
-            resp.addErro("Erro salvando registro no banco de dados");
-        }
-//        ControllerAppAbstratoSBCore.reloadAcessos();
-        if (resp.isSucesso()) {
-            resp.addAviso("As definições de segurança do grupo " + pGrpUsuario.getNome() + " foram atualizadas");
-        }
-
-        return resp.setRetornoDisparaERetorna(pGrpUsuario);
+        throw new UnsupportedOperationException("Falta implementar");
     }
 
     @InfoAcaoSeguranca(acao = FabAcaoSeguranca.USUARIO_CTR_ALTERAR_STATUS, padraoBloqueado = false)

@@ -10,6 +10,7 @@ import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_Pagina
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
 import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.FabAcaoPaginasDoSistema;
 import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.InfoAcaoPaginaDoSistema;
+
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
@@ -27,7 +28,7 @@ import javax.inject.Named;
  */
 @ViewScoped
 @Named
-@InfoAcaoPaginaDoSistema(acao = FabAcaoPaginasDoSistema.PAGINA_MB_HOME)
+@InfoAcaoPaginaDoSistema(acao = FabAcaoPaginasDoSistema.PAGINA_NATIVA_HOME_MB_PADRAO)
 @InfoPagina(nomeCurto = "home", tags = {"home"})
 public class Pg_paginaInicial extends MB_PaginaConversation {
 

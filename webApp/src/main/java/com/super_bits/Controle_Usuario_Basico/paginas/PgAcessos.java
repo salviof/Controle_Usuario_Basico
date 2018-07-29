@@ -323,7 +323,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
 
     public void atualizarPermicao() {
         try {
-            controleSessao.recarregarPermissoes();
+//            controleSessao.recarregarPermissoes();
 
             FabMensagens.enviarMensagemUsuario("Acessos recarregados com sucesso", FabMensagens.AVISO);
         } catch (Throwable e) {

@@ -14,7 +14,7 @@ import com.super_bits.modulosSB.SBCore.ConfigGeral.ConfigCoreCustomizavel;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ControleDeSessaoPadrao;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.CentramMensagemProgramadorMsgStop;
-import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.ErroSBCoreDeveloperSopMessagem;
+
 import com.super_bits.modulosSB.SBCore.modulos.logeventos.CentralLogEventosArqTextoGenerica;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.ItfConfigWebPagina;
 import com.super_bits.modulosSB.webPaginas.util.CentralDeMensagensJSFAPP;
@@ -48,7 +48,7 @@ public enum FabConfiguracoesDeAmbienteWebControle_Usuario_Basico {
         cfg.setDiretorioBase("SuperBitsWPStarter");
         cfg.setCentralDeEventos(CentralLogEventosArqTextoGenerica.class);
         cfg.setCentralMEnsagens(CentralDeMensagensJSFAPP.class);
-        cfg.setClasseErro(ErroSBCoreDeveloperSopMessagem.class);
+
         cfg.setControleDeSessao(ControleDeSessaoPadrao.class);
         cfg.setFabricaDeAcoes(new Class[]{FabAcaoSeguranca.class, FabAcaoAcessoRestritoExemplo.class});
         cfg.setClasseConfigPermissao(ConfigAcessos.class);
@@ -57,7 +57,7 @@ public enum FabConfiguracoesDeAmbienteWebControle_Usuario_Basico {
             case DESENVOLVIMENTO:
                 cfg.setEstadoAPP(SBCore.ESTADO_APP.DESENVOLVIMENTO);
                 cfg.setCentralMEnsagens(CentramMensagemProgramadorMsgStop.class);
-                cfg.setClasseErro(ErroSBCoreDeveloperSopMessagem.class);
+
                 break;
             case HOMOLOGACAO:
                 cfg.setEstadoAPP(SBCore.ESTADO_APP.HOMOLOGACAO);

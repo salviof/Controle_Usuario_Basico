@@ -10,7 +10,7 @@ import com.super_bits.Super_Bits.Controle_Usuario_Basico.configAppp.Configurador
 
 import com.super_bits.modulos.SBAcessosModel.fabricas.FabSegurancaGruposPadrao;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
-import com.super_bits.modulosSB.Persistencia.ERROS.TesteJunitSBPersistencia;
+
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfResposta;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfSessao;
@@ -20,6 +20,7 @@ import com.super_bits.modulosSB.SBCore.modulos.sessao.Interfaces.ItfControleDeSe
 import config.ConfigPersistenciaTestesAcesso;
 
 import org.junit.Test;
+import testesFW.TesteJunitSBPersistencia;
 
 /**
  *

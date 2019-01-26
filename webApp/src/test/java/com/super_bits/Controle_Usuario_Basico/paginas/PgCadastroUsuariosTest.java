@@ -4,14 +4,13 @@
  */
 package com.super_bits.Controle_Usuario_Basico.paginas;
 
-import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.FabAcaoSeguranca;
 import com.super_bits.config.webPaginas.SiteMap;
 import com.super_bits.modulos.SBAcessosModel.model.ConfiguracaoDePermissao;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
-import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import org.junit.Test;
 
 /**
+ *
  *
  * @author desenvolvedor
  */

@@ -9,9 +9,10 @@ import com.super_bits.Super_Bits.Controle_Usuario_Basico.model.config.ConfigPers
 import com.super_bits.config.webPaginas.ConfigWPControle_Usuario_Basico;
 import com.super_bits.config.webPaginas.ConfiguradorCoreWebAppControle_Usuario_Basico;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
-import com.super_bits.modulosSB.Persistencia.ERROS.TesteJunitSBPersistencia;
+
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.SBWebPaginas;
+import testesFW.TesteJunitSBPersistencia;
 
 /**
  *

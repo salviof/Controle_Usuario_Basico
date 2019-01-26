@@ -8,10 +8,12 @@ package com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_co
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.MenuSBFW;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenuSB;
+
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.SessaoMenuSB;
 import java.util.ArrayList;
 import java.util.List;
+import org.coletivojava.fw.api.objetoNativo.view.menu.MenuSBFW;
 
 /**
  *
@@ -26,8 +28,8 @@ public enum FabMenuExemplo implements ItfFabricaMenu {
     MENU_INICIAL, MENU_RESTRITO;
 
     @Override
-    public List<MenuSBFW> getTodosMenus() {
-        List<MenuSBFW> menus = new ArrayList<>();
+    public List<ItfMenuSB> getTodosMenus() {
+        List<ItfMenuSB> menus = new ArrayList<>();
         for (ItfFabricaMenu menu : this.getClass().getEnumConstants()) {
             menus.add((MenuSBFW) menu.getRegistro());
         }

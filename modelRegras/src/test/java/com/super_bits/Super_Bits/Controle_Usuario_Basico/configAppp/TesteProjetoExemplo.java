@@ -7,10 +7,11 @@ package com.super_bits.Super_Bits.Controle_Usuario_Basico.configAppp;
 
 import com.super_bits.Super_Bits.Controle_Usuario_Basico.model.config.ConfigPersistenciaControle_Usuario_Basico;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
-import com.super_bits.modulosSB.Persistencia.ERROS.TesteJunitSBPersistencia;
+
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 
 import org.junit.Test;
+import testesFW.TesteJunitSBPersistencia;
 
 /**
  *

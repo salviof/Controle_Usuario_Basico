@@ -6,13 +6,13 @@
 package com.super_bits.Super_Bits.Controle_Usuario_Basico.configAppp;
 
 import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.FabAcaoSeguranca;
-import com.super_bits.Super_Bits.Controle_Usuario_Basico.configAppp.ConfiguradorCoreControle_Usuario_Basico;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.testesFW.TesteAcaoDoSistema;
+
 import config.ConfigPersistenciaTestesAcesso;
 
 import org.junit.Test;
+import testesFW.TesteAcaoDoSistema;
 
 /**
  *

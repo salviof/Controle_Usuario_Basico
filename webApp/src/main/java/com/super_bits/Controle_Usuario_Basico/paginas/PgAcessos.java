@@ -10,9 +10,10 @@ import com.super_bits.modulos.SBAcessosModel.model.PermissaoSB;
 import com.super_bits.modulos.SBAcessosModel.model.UsuarioSB;
 import com.super_bits.modulosSB.Persistencia.dao.CrudDataSet;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
+import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfPermissao;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabMensagens;
-import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
+
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.PrimeFacesBeanModel.BP_PickList;
@@ -27,6 +28,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.coletivojava.fw.api.tratamentoErros.FabErro;
 
 /**
  *
@@ -96,7 +98,8 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             atualizaBeans();
         } catch (Throwable e) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("Erro executando init pagina de acessos ", e);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro executando init pagina de acessos ", e);
+
         }
     }
 
@@ -155,7 +158,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             super.abrePagina();
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: abrePagina \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: abrePagina \n\n", exception);
         }
     }
 
@@ -164,7 +167,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             return "Gerenciamento e controle de acessos para usuários";
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: defineTitulo \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: defineTitulo \n\n", exception);
         }
         return null;
     }
@@ -174,7 +177,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             return "Acessos";
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: defineNomeLink \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: defineNomeLink \n\n", exception);
         }
         return null;
     }
@@ -184,7 +187,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             return "Gerencie o acesso que os usuários têm no sistema";
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: defineDescricao \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: defineDescricao \n\n", exception);
         }
         return null;
     }
@@ -194,7 +197,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             return (List<PermissaoSB>) UtilSBPersistencia.getListaTodos(PermissaoSB.class, getEMPagina());
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: getAcessos \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: getAcessos \n\n", exception);
         }
         return null;
     }
@@ -204,7 +207,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             getAcessoSelecionado().getUsuariosPermitidos().add(usuarioSBInclusao);
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: adicionarUsuarioPermitido \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: adicionarUsuarioPermitido \n\n", exception);
         }
     }
 
@@ -213,7 +216,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             getAcessoSelecionado().getUsuariosNegados().add(usuarioSBInclusao);
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: adicionarUsuarioNegado \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: adicionarUsuarioNegado \n\n", exception);
         }
     }
 
@@ -222,7 +225,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             getAcessoSelecionado().getUsuariosPermitidos().remove(usuarioSBExclusao);
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: removerUsuarioPermitido \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: removerUsuarioPermitido \n\n", exception);
         }
     }
 
@@ -231,7 +234,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             getAcessoSelecionado().getUsuariosNegados().remove(usuarioSBExclusao);
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: removerUsuarioNegado \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: removerUsuarioNegado \n\n", exception);
         }
     }
 
@@ -239,7 +242,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             getAcessoSelecionado().getGruposPermitidos().add(grupoUsuarioSBInclusao);
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: adicionarGrupoPermitido \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: adicionarGrupoPermitido \n\n", exception);
         }
     }
 
@@ -247,7 +250,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             getAcessoSelecionado().getGruposNegados().add(grupoUsuarioSBInclusao);
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: adicionarGrupoNegado \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: adicionarGrupoNegado \n\n", exception);
         }
     }
 
@@ -256,7 +259,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             getAcessoSelecionado().getGruposPermitidos().remove(grupoUsuarioSBExclusao);
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: removerGrupoPermitido \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: removerGrupoPermitido \n\n", exception);
         }
     }
 
@@ -265,19 +268,19 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
             getAcessoSelecionado().getGruposNegados().remove(grupoUsuarioSBExclusao);
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: removerGrupoNegado \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: removerGrupoNegado \n\n", exception);
         }
     }
 
     public void salvarAlteracoes() {
         try {
             if (UtilSBPersistencia.mergeRegistro(getAcessoSelecionado()) != null) {
-                FabMensagens.enviarMensagemUsuario("Alterações de acessos salvas", FabMensagens.AVISO);
+                SBCore.enviarAvisoAoUsuario("Alterações de acessos salvas");
             } else {
-                FabMensagens.enviarMensagemUsuario("Não foi possível salvar as alterações de acesso", FabMensagens.ERRO);
+                throw new UnsupportedOperationException("Não foi possível salvar as alterações de acesso");
             }
         } catch (Exception exception) {
-            FabErro.SOLICITAR_REPARO.paraDesenvolvedor("\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: salvarAlteracoes \n\n", exception);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "\n\nERRO GENÉRICO: " + exception + " \nArquivo: PgAcessos.java \nMétodo/Atributo/Local: salvarAlteracoes \n\n", exception);
         }
     }
 
@@ -325,9 +328,9 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
         try {
 //            controleSessao.recarregarPermissoes();
 
-            FabMensagens.enviarMensagemUsuario("Acessos recarregados com sucesso", FabMensagens.AVISO);
+            SBCore.enviarMensagemUsuario("Acessos recarregados com sucesso", FabMensagens.AVISO);
         } catch (Throwable e) {
-            FabMensagens.enviarMensagemUsuario("Erro recarregando Acessos", FabMensagens.AVISO);
+            SBCore.enviarMensagemUsuario("Erro recarregando Acessos", FabMensagens.AVISO);
         }
     }
 

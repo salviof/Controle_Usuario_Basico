@@ -6,7 +6,6 @@
 package com.super_bits.Super_Bits.Controle_Usuario_Basico.configAppp;
 
 import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.ModuloSeguranca;
-import com.super_bits.Super_Bits.Controle_Usuario_Basico.configAppp.ConfiguradorCoreControle_Usuario_Basico;
 
 import com.super_bits.modulos.SBAcessosModel.fabricas.FabSegurancaGruposPadrao;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
@@ -15,7 +14,7 @@ import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfResposta;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfSessao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.sessao.Interfaces.ItfControleDeSessao;
+import com.super_bits.modulosSB.SBCore.modulos.servicosCore.ItfControleDeSessao;
 
 import config.ConfigPersistenciaTestesAcesso;
 

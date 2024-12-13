@@ -82,10 +82,9 @@ public class PgPermissoes extends MB_paginaCadastroEntidades<GrupoUsuarioSB> {
     private void configurarSelecaoDeAcoes() {
         for (ModuloAcaoSistema modulo : modulos) {
             modulo.getSelecaoAcoes().clear();
-            for (AcaoDoSistema acao : ModuloSeguranca.listarAcoesDoGrupo(getEntidadeSelecionada(), modulo)) {
+            ModuloSeguranca.listarAcoesDoGrupo(getEntidadeSelecionada(), modulo).forEach(acao -> {
                 modulo.getSelecaoAcoes().add(acao);
-
-            }
+            });
         }
     }
 

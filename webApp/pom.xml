@@ -26,6 +26,7 @@
             <groupId>com.super_bits.modulos</groupId>
             <artifactId>modAdminTools</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

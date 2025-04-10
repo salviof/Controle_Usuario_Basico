@@ -104,7 +104,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
     }
 
     @Override
-    public int getId() {
+    public Long getId() {
         return 0;
     }
 

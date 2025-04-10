@@ -199,7 +199,7 @@ public class PgPermissoes extends MB_paginaCadastroEntidades<GrupoUsuarioSB> {
     }
 
     @Override
-    public int getId() {
+    public Long getId() {
         return 2;
     }
 

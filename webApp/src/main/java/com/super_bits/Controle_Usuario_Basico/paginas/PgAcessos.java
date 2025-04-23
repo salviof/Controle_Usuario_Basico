@@ -37,7 +37,7 @@ import org.coletivojava.fw.api.tratamentoErros.FabErro;
  * @author Salvio
  */
 @InfoAcaoSeguranca(acao = FabAcaoSeguranca.GRUPO_MB_GERENCIAR)
-@InfoPagina(nomeCurto = "AC", tags = {"acessos"}, acessoLivre = false)
+@InfoPagina(nomeCurto = "AC", tags = {"acessos"})
 @ViewScoped
 @Named
 public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
@@ -84,7 +84,10 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
 
         System.out.println("USUARIOS::::::::::::::::::::" + grupoUsuariosCrud.getRegistro().getUsuarios());
         //inclusaoGrupos = new DualListModel<>();
-        pickListUsuarioEmGrupo = new BP_PickList<>((List) grupoUsuariosCrud.getRegistro().getUsuarios(), UtilSBPersistencia.getListaTodos(UsuarioSB.class));
+        pickListUsuarioEmGrupo = new BP_PickList(
+                (List<ItfUsuario>) grupoUsuariosCrud.getRegistro().getUsuarios(),
+                UtilSBPersistencia.getListaTodos(UsuarioSB.class)
+        );
 
     }
 
@@ -105,7 +108,7 @@ public class PgAcessos extends MB_PaginaConversation implements ItfPgAcessos {
 
     @Override
     public Long getId() {
-        return 0;
+        return 0l;
     }
 
     @Override

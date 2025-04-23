@@ -10,10 +10,10 @@ import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.ad
 import com.super_bits.configSBFW.acessos.ConfigAcessos;
 import com.super_bits.configSBFW.acessos.UtilControle_Usuario_BasicoGlobalVar;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
+import com.super_bits.modulos.SBAcessosModel.view.FabAcaoPaginasDoSistema;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ItfConfiguracaoCoreCustomizavel;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.ConfiguradorCoreDeProjetoWebWarAbstrato;
-import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.FabAcaoPaginasDoSistema;
 import java.util.List;
 import javax.servlet.ServletContext;
 

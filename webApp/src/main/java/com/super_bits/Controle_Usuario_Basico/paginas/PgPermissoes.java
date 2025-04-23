@@ -31,7 +31,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import org.primefaces.context.RequestContext;
+import org.jboss.weld.context.RequestContext;
 
 /**
  *
@@ -98,9 +98,9 @@ public class PgPermissoes extends MB_paginaCadastroEntidades<GrupoUsuarioSB> {
 
     public void listarGrupoUsuario(UsuarioSB pUsuario) {
         usuarioSelecionado = pUsuario;
-        RequestContext requestContext = RequestContext.getCurrentInstance();
-        requestContext.execute("PF('dlgVerGruposUsuario').show();");
-        paginaUtil.atualizaTelaPorID("formulario");
+        UtilSBWP_JSFTools.executarJavaScript("PF('dlgVerGruposUsuario').show();");
+
+        getPaginaUtil().atualizaTelaPorID("formulario");
 
     }
 
@@ -131,7 +131,7 @@ public class PgPermissoes extends MB_paginaCadastroEntidades<GrupoUsuarioSB> {
                 } else {
                     atualizarDados();
                 }
-                paginaUtil.atualizaTelaPorID("formulario");
+                getPaginaUtil().atualizaTelaPorID("formulario");
             }
 
         }
@@ -200,7 +200,7 @@ public class PgPermissoes extends MB_paginaCadastroEntidades<GrupoUsuarioSB> {
 
     @Override
     public Long getId() {
-        return 2;
+        return 2l;
     }
 
     public List<GrupoUsuarioSB> getGrupos() {
@@ -221,11 +221,7 @@ public class PgPermissoes extends MB_paginaCadastroEntidades<GrupoUsuarioSB> {
 
     @Override
     public PgUtil getPaginaUtil() {
-        return paginaUtil;
-    }
-
-    public void setPaginaUtil(PgUtil paginaUtil) {
-        this.paginaUtil = paginaUtil;
+        return super.getPaginaUtil();
     }
 
     public List<ItfAcaoDoSistema> getAcoesListarGrupos() {

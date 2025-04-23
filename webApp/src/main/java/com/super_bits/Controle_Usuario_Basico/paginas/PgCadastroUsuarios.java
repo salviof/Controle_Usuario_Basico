@@ -107,7 +107,7 @@ public class PgCadastroUsuarios extends MB_paginaCadastroEntidades<UsuarioSB> {
 
     @Override
     public Long getId() {
-        return 3;
+        return 3l;
     }
 
     public UsuarioSB getUsuarioSelecionado() {

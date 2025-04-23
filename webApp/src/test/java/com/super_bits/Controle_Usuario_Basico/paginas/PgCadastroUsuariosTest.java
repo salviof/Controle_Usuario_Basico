@@ -20,7 +20,8 @@ public class PgCadastroUsuariosTest extends TestesControleDeUsuarioBasicoWebApp 
     public void testeInicial() {
         try {
             new SiteMap();
-            ConfiguracaoDePermissao configPermissao = (ConfiguracaoDePermissao) UtilSBPersistencia.getRegistroByID(ConfiguracaoDePermissao.class, 0);
+            ConfiguracaoDePermissao configPermissao = (ConfiguracaoDePermissao) UtilSBPersistencia
+                    .getRegistroByID(ConfiguracaoDePermissao.class, 0l);
 
 //            System.out.println("podeAcessar?" + podeAcessar + "Precisa permissao?" + FabAcaoSeguranca.GRUPO_MB_GERENCIAR.getAcaoDoSistema().isPrecisaPermissao());
             PgCadastroUsuarios teste = new PgCadastroUsuarios();

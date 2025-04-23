@@ -29,12 +29,12 @@ public enum FabModulosIProjetoTesteI implements ItfFabricaModulo {
         ModuloAcaoSistema modulo = new ModuloAcaoSistema();
         switch (this) {
             case DEMONSTRACAO_BASICA:
-                modulo.setId(1);
+                modulo.setId(1l);
                 modulo.setNome("Modulo demonstração");
                 modulo.setDescricao("Modulo demonstração Teste");
                 break;
             case DEMONSTRACAO_ACESSO_RESTRITO:
-                modulo.setId(2);
+                modulo.setId(2l);
                 modulo.setNome("Modulo Acesso Restrito");
                 modulo.setDescricao("");
                 break;
